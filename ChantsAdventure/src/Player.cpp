@@ -32,6 +32,20 @@ namespace chants
         return val;
     }
 
+    /// @brief Gets the value of the player's equipped weapon
+    /// @return int
+    int Player::GetAttack()
+    {
+        return _Equipment[0].GetValue();
+    }
+
+    /// @brief Gets the value of the player's equipped armor
+    /// @return int
+    int Player::GetDefense()
+    {
+        return _Equipment[1].GetValue();
+    }
+
     void Player::RemoveAsset(int index)
     {
         _assets.erase(_assets.begin() + index);

@@ -23,6 +23,9 @@ namespace chants
         void AddAsset(Asset asset);
         int GetTotalAssetValue();
 
+        int GetAttack();
+        int GetDefense();
+
         void UseAsset(Asset asset);
         void RemoveAsset(int index);
 
