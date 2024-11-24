@@ -244,10 +244,8 @@ int main() {
                          << "[1] Yes" << endl;
                     cin >> healOrFight;
                     if (healOrFight) {
-                        // I dont know what to type in to the useAsset parameter to get it to use the healing potion
-                        user.UseAsset();
-                    }
-
+                        // I dont know what to type in to the useAsset parameter to get it to use the healing potion                    }
+                        user.usePotion();
                     // player attacks monster
                     currMonster->takeDamage(user.playerAttack());
                     // monster attacks player

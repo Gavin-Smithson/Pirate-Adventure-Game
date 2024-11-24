@@ -31,5 +31,6 @@ namespace chants
 
         void DisplayEquipment();
         int playerAttack();
+        void usePotion();
     };
 }
