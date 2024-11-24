@@ -30,5 +30,6 @@ namespace chants
         void RemoveAsset(int index);
 
         void DisplayEquipment();
+        int playerAttack();
     };
 }

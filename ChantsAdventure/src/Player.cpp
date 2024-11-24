@@ -105,4 +105,9 @@ namespace chants
             }
         }
     }
+
+    int Player::playerAttack(){
+        int diceRoll = rollDice();
+        return diceRoll + GetAttack() + _fightCoefficient;
+    }
 }

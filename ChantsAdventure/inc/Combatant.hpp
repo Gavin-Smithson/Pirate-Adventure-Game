@@ -12,9 +12,11 @@ namespace chants
         int _fightCoefficient;
 
     public:
+        int rollDice();
         Combatant(string name, int health, int coefficient);
         int Fight();
         string GetName();
         int GetHealth();
+        void takeDamage(int damage);
     };
 }

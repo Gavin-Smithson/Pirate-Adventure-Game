@@ -1,76 +1,64 @@
-#include <iostream>
-
-#include <Node.hpp>
-#include <Asset.hpp>
-#include <Player.hpp>
-#include <Monster.hpp>
 #include <AdventureGameMap.hpp>
+#include <Asset.hpp>
+#include <Monster.hpp>
+#include <Node.hpp>
+#include <Player.hpp>
+#include <iostream>
 
 using namespace std;
 using namespace chants;
 
-bool isNumber(const string &str)
-{
-    for (char const &c : str)
-    {
+bool isNumber(const string &str) {
+    for (char const &c : str) {
         if (!std::isdigit(c))
             return false;
     }
     return true;
 }
 
-void AtNode(Node &viewPort)
-{
-    cout << "\033[2J\033[1;1H"; // clear screen
+void AtNode(Node &viewPort) {
+    cout << "\033[2J\033[1;1H";  // clear screen
 
     // Output contents of this Node
     cout << "Location: " << viewPort.GetName() + "\n\n";
     cout << viewPort.Description << endl
          << "There are paths here ..." << endl;
-    for (Node *node : viewPort.GetConnections())
-    {
+    for (Node *node : viewPort.GetConnections()) {
         cout << node->GetId() << " " << node->GetName() << endl;
     }
 
     // Show all assets in Node
-    for (Asset *asset : viewPort.GetAssets())
-    {
+    for (Asset *asset : viewPort.GetAssets()) {
         cout << "Asset at this node: " << asset->GetName() << " " << asset->GetMessage() << " " << asset->GetValue() << endl;
     }
 
     // Show any monsters at this Node
-    for (Monster *monster : viewPort.GetMonsters())
-    {
+    for (Monster *monster : viewPort.GetMonsters()) {
         cout << "Monster at this node: " << monster->GetName() << " " << monster->GetHealth() << endl;
     }
 
     cout << "\n";
 }
 
-int FindNode(string loc, vector<Node> *gameMap)
-{
+int FindNode(string loc, vector<Node> *gameMap) {
     int intLoc = -1;
-    if (isNumber(loc))
-    {
+    if (isNumber(loc)) {
         intLoc = stoi(loc);
     }
-    for (Node node : *gameMap)
-    {
+    for (Node node : *gameMap) {
         if (node.GetName() == loc || node.GetId() == intLoc)
             return node.GetId();
     }
     return -1;
 }
 
-int Battle(Player player, Monster monster)
-{
+int Battle(Player player, Monster monster) {
     srand(time(nullptr));
 
     return player.GetHealth();
 }
 
-std::string getLastWord(const std::string &str)
-{
+std::string getLastWord(const std::string &str) {
     // Trim trailing spaces
     std::string trimmed = str;
     trimmed.erase(trimmed.find_last_not_of(' ') + 1);
@@ -79,12 +67,9 @@ std::string getLastWord(const std::string &str)
     size_t pos = trimmed.find_last_of(' ');
 
     // Extract the last word
-    if (pos == std::string::npos)
-    {
-        return trimmed; // No spaces found, return the whole string
-    }
-    else
-    {
+    if (pos == std::string::npos) {
+        return trimmed;  // No spaces found, return the whole string
+    } else {
         return trimmed.substr(pos + 1);
     }
 }
@@ -92,8 +77,7 @@ std::string getLastWord(const std::string &str)
 //
 // All this game setup will be moved to gamemap and out of the main function
 //
-int main()
-{
+int main() {
     // AdventureGameMap _gameMap;
 
     vector<Node> gameMap;
@@ -148,7 +132,7 @@ int main()
     island.AddConnection(&quicksand);
     island.AddConnection(&hut);
 
-    cave.AddConnection(&home); // one way connection
+    cave.AddConnection(&home);  // one way connection
     cave.AddConnection(&beach);
     cave.AddConnection(&island);
 
@@ -184,7 +168,7 @@ int main()
     // randomly add assets to nodes
     int numOfNodes = gameMap.size();
 
-    srand(time(nullptr)); // seed the random number generator
+    srand(time(nullptr));  // seed the random number generator
     int randNode = rand() % numOfNodes;
     gameMap[randNode].AddAsset(&flashlight);
 
@@ -224,15 +208,61 @@ int main()
     gameMap[randNode].AddMonster(&griffin);
 
     // get ready to play game below
-    int nodePointer = 0; // start at home
+    int nodePointer = 0;  // start at home
     string input;
+    Player user("tempName", 100, 0);
 
     // +++++++++ game loop ++++++++++
-    while (true)
-    {
+    while (true) {
         // show current node info
+
         AtNode(gameMap[nodePointer]);
 
+        // code for how a player and monster would fight
+        // if the current node has a monster
+        if (gameMap[nodePointer].hasMonster()) {
+
+            // copy the list of pointers to monsters in the room
+            vector<Monster *> currMonsters = gameMap[nodePointer].GetMonsters();
+            
+            // iterate through all the monsters in the room and fight them
+            int i = 0;
+            while (i < currMonsters.size()) {
+            
+                // current monster in the list of monsters
+                Monster *currMonster = currMonsters[i];
+            
+                // keep attacking the monster till their health is 0
+                while (currMonster->GetHealth() > 0) {
+                    // decide if the user wants to use a health potion
+                    bool healOrFight;
+                    cout << "Current health: " << user.GetHealth() << endl;
+                    cout << "Current monster health: " << currMonster->GetHealth() << endl;
+
+                    cout << "Would you like to use a health potion?" << endl
+                         << "[0] No" << endl
+                         << "[1] Yes" << endl;
+                    cin >> healOrFight;
+                    if (healOrFight) {
+                        // I dont know what to type in to the useAsset parameter to get it to use the healing potion
+                        user.UseAsset();
+                    }
+
+                    // player attacks monster
+                    currMonster->takeDamage(user.playerAttack());
+                    // monster attacks player
+                    user.takeDamage(currMonster->monsterAttack());
+                    if (user.GetHealth() < 0) {
+                        cout << "You died!" << endl
+                             << "current room: " << nodePointer << endl;
+                        //  finish program
+                        return 0;
+                    }
+                }
+                // fight next monster
+                i++;
+            }
+        }
         cout << "Go to node? e(x)it: ";
         getline(cin, input);
 
@@ -241,47 +271,39 @@ int main()
             break;
 
         int nodeAddr = -1;
-        if (isNumber(input))
-        {
+        if (isNumber(input)) {
             nodeAddr = stoi(input);
         }
 
         bool validConnection = false;
-        for (Node *node : gameMap[nodePointer].GetConnections())
-        {
-            if (node->GetId() == nodeAddr)
-            {
+        for (Node *node : gameMap[nodePointer].GetConnections()) {
+            if (node->GetId() == nodeAddr) {
                 validConnection = true;
             }
         }
 
         int dir = -1;
-        if (validConnection)
-        {
+        if (validConnection) {
             dir = FindNode(input, &gameMap);
         }
 
         // if player wants to take an asset (t hammer)
-        if (input.length() > 1 && input[0] == 't')
-        {
+        if (input.length() > 1 && input[0] == 't') {
             string lastWord = getLastWord(input);
         }
 
         // if player wants to attack a monster (a kraken)
-        if (input.length() > 1 && input[0] == 'a')
-        {
+        if (input.length() > 1 && input[0] == 'a') {
             string lastWord = getLastWord(input);
         }
 
         // if player wants to drop an asset (d hammer)
-        if (input.length() > 1 && input[0] == 'd')
-        {
+        if (input.length() > 1 && input[0] == 'd') {
             string lastWord = getLastWord(input);
         }
 
         // if player wants to inspect an asset (i hammer)
-        if (input.length() > 1 && input[0] == 'i')
-        {
+        if (input.length() > 1 && input[0] == 'i') {
             string lastWord = getLastWord(input);
         }
 

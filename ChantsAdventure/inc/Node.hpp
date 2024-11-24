@@ -35,6 +35,7 @@ namespace chants
 
         void AddMonster(Monster *monster);
         vector<Monster *> GetMonsters();
+        bool hasMonster();
 
         bool operator==(const Node &rhs) const;
     };
