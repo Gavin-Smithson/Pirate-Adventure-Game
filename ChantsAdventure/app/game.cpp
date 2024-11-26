@@ -221,21 +221,19 @@ int main() {
         // code for how a player and monster would fight
         // if the current node has a monster
         if (gameMap[nodePointer].hasMonster()) {
-
             // copy the list of pointers to monsters in the room
             vector<Monster *> currMonsters = gameMap[nodePointer].GetMonsters();
-            
+
             // iterate through all the monsters in the room and fight them
             int i = 0;
             while (i < currMonsters.size()) {
-            
                 // current monster in the list of monsters
                 Monster *currMonster = currMonsters[i];
-            
+
                 // keep attacking the monster till their health is 0
                 while (currMonster->GetHealth() > 0) {
                     // decide if the user wants to use a health potion
-                    bool healOrFight;
+                    bool healOrFight = 0;
                     cout << "Current health: " << user.GetHealth() << endl;
                     cout << "Current monster health: " << currMonster->GetHealth() << endl;
 
@@ -244,74 +242,75 @@ int main() {
                          << "[1] Yes" << endl;
                     cin >> healOrFight;
                     if (healOrFight) {
-                        // I dont know what to type in to the useAsset parameter to get it to use the healing potion                    }
+                        // I dont know what to type in to the useAsset parameter to get it to use the healing potion
                         user.usePotion();
-                    // player attacks monster
-                    currMonster->takeDamage(user.playerAttack());
-                    // monster attacks player
-                    user.takeDamage(currMonster->monsterAttack());
-                    if (user.GetHealth() < 0) {
-                        cout << "You died!" << endl
-                             << "current room: " << nodePointer << endl;
-                        //  finish program
-                        return 0;
+                        // player attacks monster
+                        currMonster->takeDamage(user.playerAttack());
+                        // monster attacks player
+                        user.takeDamage(currMonster->monsterAttack());
+                        if (user.GetHealth() < 0) {
+                            cout << "You died!" << endl
+                                 << "current room: " << nodePointer << endl;
+                            //  finish program
+                            return 0;
+                        }
                     }
+                    // fight next monster
+                    i++;
                 }
-                // fight next monster
-                i++;
             }
-        }
-        cout << "Go to node? e(x)it: ";
-        getline(cin, input);
+            cout << "Go to node? e(x)it: ";
+            getline(cin, input);
 
-        // exit app?
-        if (input == "x")
-            break;
+            // exit app?
+            if (input == "x")
+                break;
 
-        int nodeAddr = -1;
-        if (isNumber(input)) {
-            nodeAddr = stoi(input);
-        }
-
-        bool validConnection = false;
-        for (Node *node : gameMap[nodePointer].GetConnections()) {
-            if (node->GetId() == nodeAddr) {
-                validConnection = true;
+            int nodeAddr = -1;
+            if (isNumber(input)) {
+                nodeAddr = stoi(input);
             }
+
+            bool validConnection = false;
+            for (Node *node : gameMap[nodePointer].GetConnections()) {
+                if (node->GetId() == nodeAddr) {
+                    validConnection = true;
+                }
+            }
+
+            int dir = -1;
+            if (validConnection) {
+                dir = FindNode(input, &gameMap);
+            }
+
+            // if player wants to take an asset (t hammer)
+            if (input.length() > 1 && input[0] == 't') {
+                string lastWord = getLastWord(input);
+            }
+
+            // if player wants to attack a monster (a kraken)
+            if (input.length() > 1 && input[0] == 'a') {
+                string lastWord = getLastWord(input);
+            }
+
+            // if player wants to drop an asset (d hammer)
+            if (input.length() > 1 && input[0] == 'd') {
+                string lastWord = getLastWord(input);
+            }
+
+            // if player wants to inspect an asset (i hammer)
+            if (input.length() > 1 && input[0] == 'i') {
+                string lastWord = getLastWord(input);
+            }
+
+            cout << "Dir: " << dir << endl;
+            if (dir >= 0)
+                nodePointer = dir;
+            else
+                cout << "Not a valid node address\n";
+
+            cout << endl;
         }
-
-        int dir = -1;
-        if (validConnection) {
-            dir = FindNode(input, &gameMap);
-        }
-
-        // if player wants to take an asset (t hammer)
-        if (input.length() > 1 && input[0] == 't') {
-            string lastWord = getLastWord(input);
-        }
-
-        // if player wants to attack a monster (a kraken)
-        if (input.length() > 1 && input[0] == 'a') {
-            string lastWord = getLastWord(input);
-        }
-
-        // if player wants to drop an asset (d hammer)
-        if (input.length() > 1 && input[0] == 'd') {
-            string lastWord = getLastWord(input);
-        }
-
-        // if player wants to inspect an asset (i hammer)
-        if (input.length() > 1 && input[0] == 'i') {
-            string lastWord = getLastWord(input);
-        }
-
-        cout << "Dir: " << dir << endl;
-        if (dir >= 0)
-            nodePointer = dir;
-        else
-            cout << "Not a valid node address\n";
-
-        cout << endl;
+        return 0;
     }
-    return 0;
 }
