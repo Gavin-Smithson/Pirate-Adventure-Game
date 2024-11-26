@@ -59,6 +59,22 @@ namespace chants
         Node beach(8, "Beach");
         beach.Description = "A beautiful beach stretches out in a graceful curve, bordered by soft, powdery sand that\ngleams white under the sunlight. Each grain feels fine and smooth beneath bare\nfeet, as though sculpted by the gentle hands of time and tide. The shoreline\nis kissed by the crystal-clear waters of the ocean,\nwhere the surf laps quietly and rhythmically, creating a soft,\nsoothing sound with each wave.\n";
 
+        // NEW NODES ADDED HERE -----------------------------------------------------------------------------------------------------------------------------
+
+        // FIXME: Fix the spacing of the words for the nodes
+
+        Node ship(9, "Ship"); //FIXME: Change this to node 0
+        // FIXME: What is the name of the port, what season is it, why is the adventurer here?
+        ship.Description = "The cool, salty air made you shiver as the ship approached the port of <FIXME:NeedNameForTheRealm>.\n You were determined to <FIXME: AddObjective>.\n";
+
+
+        Node port(10, "Port"); //FIXME: Change this to node 1
+        // FIXME: What should the player see/do in the port, it is marked blue for story, should they just decide which of the 3 paths ahead to take (to nodes 2,3, and 5)
+        port.Description = "The <FIXME: AddPortName> port was bustling with travelers, fishermen, merchants and the like.\n You took a deep breath and walked down the ship's ramp to the dock.\n";
+
+        // NEW CONNECTIONS TO NODES
+
+
         // connect nodes paths
         home.AddConnection(&mountain);
         home.AddConnection(&city);
