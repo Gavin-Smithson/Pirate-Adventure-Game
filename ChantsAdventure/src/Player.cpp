@@ -128,4 +128,20 @@ namespace chants
         int diceRoll = rollDice();
         return diceRoll + GetAttack() + _fightCoefficient;
     }
+
+void Player::takeDamage(int damage) {
+    int netDamage = damage - GetDefense();
+
+    if (netDamage <= 0) {
+        return;
+    }
+
+    _health -= netDamage;
+
+    // Ensure health doesn't go below zero
+    if (_health < 0) {
+        _health = 0;
+    }
+}
+
 }

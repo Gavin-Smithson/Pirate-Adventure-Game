@@ -17,6 +17,6 @@ namespace chants
         int Fight();
         string GetName();
         int GetHealth();
-        void takeDamage(int damage);
+        virtual void takeDamage(int damage);
     };
 }
