@@ -39,6 +39,27 @@ void AtNode(Node &viewPort) {
 
     cout << "\n";
 }
+    void fightMonster(Player* user, Monster* monster){
+                    // decide if the user wants to use a health potion
+                    int healOrFight = 0;
+                    cout << "Current health: " << user->GetHealth() << endl;
+                    cout << "Current monster health: " << monster->GetHealth() << endl;
+
+                    cout << "Would you like to use a health potion?" << endl
+                         << "[0] No" << endl
+                         << "[1] Yes" << endl;
+                    cin >> healOrFight;
+                    if (healOrFight ==1) {
+                        user->usePotion();
+                    }
+                        // player attacks monster
+                        cout << "player attacks monster"<<endl;
+                        monster->takeDamage(user->playerAttack());
+                        // monster attacks player
+                        cout << "Monster attacks player" << endl;
+                        user->takeDamage(monster->monsterAttack());
+     
+    }
 
 int FindNode(string loc, vector<Node> *gameMap) {
     int intLoc = -1;
@@ -232,32 +253,15 @@ int main() {
 
                 // keep attacking the monster till their health is 0
                 while (currMonster->GetHealth() > 0) {
-                    // decide if the user wants to use a health potion
-                    bool healOrFight = 0;
-                    cout << "Current health: " << user.GetHealth() << endl;
-                    cout << "Current monster health: " << currMonster->GetHealth() << endl;
-
-                    cout << "Would you like to use a health potion?" << endl
-                         << "[0] No" << endl
-                         << "[1] Yes" << endl;
-                    cin >> healOrFight;
-                    if (healOrFight) {
-                        // I dont know what to type in to the useAsset parameter to get it to use the healing potion
-                        user.usePotion();
-                        // player attacks monster
-                        currMonster->takeDamage(user.playerAttack());
-                        // monster attacks player
-                        user.takeDamage(currMonster->monsterAttack());
-                        if (user.GetHealth() < 0) {
-                            cout << "You died!" << endl
-                                 << "current room: " << nodePointer << endl;
-                            //  finish program
+                    fightMonster(&user, currMonster);
+                    if (user.GetHealth() <= 0) {
+                        cout << "You died!" << endl
+                                << "current room: " << nodePointer << endl;
                             return 0;
-                        }
-                    }
+                        }   
+                }
                     // fight next monster
                     i++;
-                }
             }
             cout << "Go to node? e(x)it: ";
             getline(cin, input);

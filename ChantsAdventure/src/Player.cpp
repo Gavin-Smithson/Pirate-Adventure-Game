@@ -133,10 +133,11 @@ void Player::takeDamage(int damage) {
     int netDamage = damage - GetDefense();
 
     if (netDamage <= 0) {
+        cout <<"No damage taken" <<endl;
         return;
     }
-
-    _health -= netDamage;
+    
+    _health -=  netDamage;
 
     // Ensure health doesn't go below zero
     if (_health < 0) {
