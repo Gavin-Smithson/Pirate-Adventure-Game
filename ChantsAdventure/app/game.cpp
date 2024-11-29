@@ -170,8 +170,9 @@ int main()
     Node15.AddConnection(&Node16);
     Node15.AddConnection(&Node9);
 
+    Node16.AddConnection(&Node19);
     Node16.AddConnection(&Node15);
-
+    
     Node17.AddConnection(&Node18);
 
     Node18.AddConnection(&Node16);
