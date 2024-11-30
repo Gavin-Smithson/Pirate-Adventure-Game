@@ -105,7 +105,10 @@ int main()
     Node Node4(4, "Forbidden Forest");
     Node Node5(5, "Roadside Inn");
     Node Node6(6, "Road to Town");
-    Node Node7(7, "Village");
+    
+    Node Node7(7, "Port Town");
+    Node7.Description = "The Port Town is bustling with travelers, fishermen, \nmerchants and the like. The crowd will be difficult to navigate through.\n";
+
     Node Node8(8, "Broken Bridge");
     Node Node9(9, "Town");
     Node Node10(10, "Town Square");
