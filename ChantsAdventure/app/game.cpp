@@ -110,16 +110,28 @@ int main()
     Node7.Description = "The Port Town is bustling with travelers, fishermen, \nmerchants and the like. The crowd will be difficult to navigate through.\n";
 
     Node Node8(8, "Broken Bridge");
+    Node8.Description = "A bridge lies before you, destroyed by battle. Though\nit once allowed passage across the Python River,\ncrossing this bridge is now impossible. Across\nthe waters, you see an orb atop a pedestal, pulsing\nwith energy. Past the orb, you can see an old\nhomestead in the distance, crumbled and ruined.\nIt seems as though it was set ablaze long ago,\nleaving only ash and rubble.\n";
+
     Node Node9(9, "Town");
     Node Node10(10, "Town Square");
     Node Node11(11, "Blacksmith's Forge");
     Node Node12(12, "General Store");
+    
     Node Node13(13, "Decrepit Mansion");
+    Node13.Description = "You step inside the old mansion. You are greeted by\ncobwebs and disarray. To your left, you see a red\nflag draped across the wall. To your right, you\nsee empty bottles and alchemical instruments. Ahead,\nyou see an orb atop a pedestal, pulsing with magical\nenergy. It gives power to a large teleportation sigil.\nA call for help from somewhere far away.\n";
+
     Node Node14(14, "War-Torn Fields");
     Node Node15(15, "Abandoned Village");
+    
     Node Node16(16, "Crimson Castle");
-    Node Node17(17, "Farmer's Field");
+    Node16.Description = "You arrive at a castle, draped in red flags. Walking\nthrough the open gates, you find the armored corpses\nof knights, torn asunder by some terrible beast.\nThe southern wall was forced open by what appears\nto be simply roots and vines.\n";
+    
+    Node Node17(17, "Teleportation Sigil");
+    Node17.Description = "You arrive in a field of crops and bones. Wheat and\ncorn surround you, crushed and ripped apart by a\npowerful beast. A broken bridge can be seen in one\ndirection. In the other, a distant homestead on fire. Next\nto you sits an orb atop a pedestal. Beneath your feet,\nyou see a familiar sigil, its magical energy now\nextinguished. A strange feeling overcomes you...\n";
+
     Node Node18(18, "Destroyed Homestead");
+    Node18.Description = "Past the crops, you find yourself amidst the flaming ruins of\na homestead. Once the food supplier of a nearby kingdom,\nthe buildings surrounding you now lie crumbled, toppled\nby a terror perhaps even greater than FIXME-DRAGONNAME.\nDozens of armored corpses can be seen spread about\nthe destruction. Adorning their armor, you see\na red insignia.\n";
+
     Node Node19(19, "Dragon's Castle");
 
     // connect nodes paths
@@ -165,6 +177,7 @@ int main()
 
     Node12.AddConnection(&Node10);
 
+    Node13.AddConnection(&Node17);
     Node13.AddConnection(&Node10);
 
     Node14.AddConnection(&Node19);
@@ -179,7 +192,6 @@ int main()
     Node17.AddConnection(&Node18);
 
     Node18.AddConnection(&Node16);
-    Node18.AddConnection(&Node17);
 
     //build map in same order as Node Ids above.
     //The index of each node in the vector must match it's id.
@@ -210,6 +222,9 @@ int main()
     Asset purplehaze("Purple haze", "A spell that renders opponents helpless.", 250, true);
     Asset rustynail("Rusty nail", "Infect an opponent with tetanus.", 100, true);
     Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
+    
+    //Secret Boss Reward
+    Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false);
 
     // randomly add assets to nodes
     int numOfNodes = gameMap.size();
@@ -260,6 +275,26 @@ int main()
     // +++++++++ game loop ++++++++++
     while (true)
     {
+        //Secret path
+        if (gameMap[nodePointer] == Node17)
+        {
+            //Changing the name of the teleporter to the name of the location
+            Node17.ChangeName("Crop Field");
+            gameMap[17].ChangeName("Crop Field");
+
+            //Node16 is changed to reflect the defeat of the secret boss
+            gameMap[16].Description = "You arrive at a castle draped in red flags. Walking\nthrough the open gate, you are greeted with cheers\nand applause. The beast you slew defeated their very\nbest knights and would have felled this castle. You\nare presented with their finest armor, a gift from\nthe castle's lord.\n";
+            gameMap[16].AddAsset(&LordsArmor);
+
+            //Removing the connection to Node17
+            gameMap[13].RemoveFirstConnection();
+
+            //Changing Node13 and Node8 to reflect the usage of the secret path
+            gameMap[13].Description = "You step inside the old mansion. The orb is now\ndormant, its magical energy extinguished. Its call answered.\n";
+            gameMap[8].Description = "A bridge lies before you, destroyed by battle. Though \nit once allowed passage across the Python River,\ncrossing this bridge is\nnow impossible.\n";
+        }
+
+
         // show current node info
         AtNode(gameMap[nodePointer]);
 

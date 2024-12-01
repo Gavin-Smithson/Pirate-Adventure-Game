@@ -37,5 +37,8 @@ namespace chants
         vector<Monster *> GetMonsters();
 
         bool operator==(const Node &rhs) const;
+
+        void ChangeName(string);
+        void RemoveFirstConnection();
     };
 }
