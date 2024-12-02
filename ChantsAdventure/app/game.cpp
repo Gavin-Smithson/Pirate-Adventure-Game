@@ -117,7 +117,10 @@ int main()
     Node Node4(4, "Forbidden Forest");
     Node4.Description = "Further down the trail you notice a big forest, way\nlarger than the one you've gone through before.\nThere is a sign nailed to a dead tree, you examine\nthe sign and it reads\n\"Forbidden Forest DON'T ENTER\"\nThe after reading that you feel a chill as you notice\na spider climbing up your hand. After promptly\nsquishing it you know this forest is going to be\ndangerous. You continue onward.\n";
     Node Node5(5, "Roadside Inn");
+    Node5.Description = "You approach an inn on the side of the road. The \nsign above the door reads \"Traveler's Haven\". Smoke \nis coming out of the chimney and a warm glow pours from the windows.\n";
+
     Node Node6(6, "Road to Town");
+    Node6.Description = "The road continues past the inn. A forest lines \neither side of the path and in the distance, a \nbabbling creek can be heard nearby. In the distance,\n you see a large wall emerge from the horizon.\n";
     
     Node Node7(7, "Port Town");
     Node7.Description = "The Port Town is bustling with travelers, fishermen, \nmerchants and the like. The crowd will be difficult to navigate through.\n";
@@ -125,10 +128,16 @@ int main()
     Node Node8(8, "Broken Bridge");
     Node8.Description = "A bridge lies before you, destroyed by battle. Though\nit once allowed passage across the Python River,\ncrossing this bridge is now impossible. Across\nthe waters, you see an orb atop a pedestal, pulsing\nwith energy. Past the orb, you can see a homestead\nin the distance, set ablaze.\n";
 
-    Node Node9(9, "Town");
+    Node Node9(9, "Town Entrance");
+    Node9.Description = "A tall, stone wall surrounds the town of Seaworthy. \nThe sounds of chatter spill from over the wall. The \nentrance to town has two guards stationed outside \nthe gate. After telling them of your quest to defeat \nthe dragon that has plauged the island, they happily \nlet you in.\n.";
+
     Node Node10(10, "Town Square");
+    Node10.Description = "The Town Square is packed with market stalls selling \nvarious goods and wares. The buildings surrounding \nthe Town Square house various shops with items for \nsale. It might be worth it to check them out.\n";
+
     Node Node11(11, "Blacksmith's Forge");
-    Node Node12(12, "General Store");
+    Node10.Description = "The sound of the Blacksmith's hammer echos into the \nstreets. The forge has a large fire pit in the center \nwith white hot metal inside a crucible. The heat \nfrom the fire makes you sweat. Gold sat heavy in \nyour pocket, years of piracy meant your pockets \nwere never light.\n";
+
+    Node Node12(12, "General Store"); // Gold sat heavy in \nyour pocket, years of piracy meant your pockets \nwere never light.\n" ----> to explain why we have money without needing to add money to inventory
     
     Node Node13(13, "Decrepit Mansion");
     Node13.Description = "You step inside the old mansion. You are greeted by\ncobwebs and disarray. To your left, you see a red\nflag draped across the wall. To your right, you\nsee empty bottles and alchemical instruments. Ahead,\nyou see an orb atop a pedestal, pulsing with magical\nenergy. It gives power to a large teleportation sigil.\nA call for help from somewhere far away.\n";
