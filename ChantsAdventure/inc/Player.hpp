@@ -13,10 +13,22 @@ namespace chants
     {
     private:
         vector<Asset> _assets;
+        vector<Asset> _Equipment;
 
     public:
+        
+        int maxHealth;
+
         Player(string name, int health, int fightCoefficient);
         void AddAsset(Asset asset);
         int GetTotalAssetValue();
+
+        int GetAttack();
+        int GetDefense();
+
+        void UseAsset(Asset asset);
+        void RemoveAsset(int index);
+
+        void DisplayEquipment();
     };
 }
