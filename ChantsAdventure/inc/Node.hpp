@@ -38,5 +38,8 @@ namespace chants
         bool hasMonster();
 
         bool operator==(const Node &rhs) const;
+
+        void ChangeName(string);
+        void RemoveFirstConnection();
     };
 }
