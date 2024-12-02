@@ -107,15 +107,15 @@ int main()
     vector<Node> gameMap;
 
     Node Node0(0, "Beach");
-    Node0.Description = "The beach of Seasharp Island\nIt's filled with debries and bodies. It's a wonder no one cleans this place up.\n";
+    Node0.Description = "The beach of Seasharp Island.\nIt's filled with debris and bodies. It's a wonder\nno one cleans this place up.\n";
     Node Node1(1, "Riverside Road");
-    Node1.Description = "You walk down a well traveled road. Almost too well traveled.\nThere is a small grove of trees that smell pure and free. The sun beams down onto your face as you walk.\nYou never got moments to yourself on the ship and you bask in the feeling of freedom you have. As you walk toward the forest.\n";
+    Node1.Description = "You walk down a well traveled road. Almost too well\ntraveled. There is a small grove of trees that smell\npure and free. The sun beams down onto your face\nas you walk. You never got moments to yourself on\nthe ship and you bask in the feeling of freedom you\nhave as you walk toward the forest.\n";
     Node Node2(2, "Forest");
-    Node2.Description = "You've finally made it to the forest. The trees are dense, almost no sunlight makes it through the thick ceiling.\nYou know there will be enemies waiting inside, but you don't know what to expect.\nYou see a skeleton with a chestplate, it looks worn but usable, much better than what you have on now.\n";
+    Node2.Description = "You've finally made it to the forest. The trees are\ndense, almost no sunlight makes it through the thick\nceiling. You know there will be enemies waiting\ninside, but you don't know what to expect. You\nsee a skeleton with a chestplate, it looks worn but\nusable, much better than what you have on now.\n";
     Node Node3(3, "Castle Azure");
-    Node3.Description = "You make it out of the forest and contine through the path\nYou find yourself face to face with a tall castle, it's not exactly grand. It's made out of grey bricks and blue stones on the top of the buildings. It has two spires with pointy tips.\nYou decide to go check it out because there might be some good loot to prepare for the dragon.\n";
+    Node3.Description = "You make it out of the forest and continue through\nthe path. You find yourself face to face with a tall\ncastle, it's not exactly grand. It's made out of\ngrey bricks and blue stones on the top of the\nbuildings. It has two spires with pointy tips.\nYou decide to go check it out because there might be\nsome good loot to prepare for the dragon.\n";
     Node Node4(4, "Forbidden Forest");
-    Node4.Description = "Further down the trail you notice a big forest, way larger than the one you've gone through before. There is a sign nailed to a dead tree, you examine the sign and it reads \"Forbidden Forest DON'T ENTER\"\nThe after reading that you feel a chill as you notice a spider climbing up your hand. After promptly squishing it you know this forest is going to be dangerous.\nYou continue onward.\n";
+    Node4.Description = "Further down the trail you notice a big forest, way\nlarger than the one you've gone through before.\nThere is a sign nailed to a dead tree, you examine\nthe sign and it reads\n\"Forbidden Forest DON'T ENTER\"\nThe after reading that you feel a chill as you notice\na spider climbing up your hand. After promptly\nsquishing it you know this forest is going to be\ndangerous. You continue onward.\n";
     Node Node5(5, "Roadside Inn");
     Node Node6(6, "Road to Town");
     
@@ -236,14 +236,25 @@ int main()
     Asset flashlight("Flashlight", "A flashlight can be very useful, especially in dark places.", 50, false);
     Asset hammer("Hammer", "A hammer to help defend yourself", 150, true);
     Asset purplehaze("Purple haze", "A spell that renders opponents helpless.", 250, true);
-    Asset rustynail("Rusty nail", "Infect an opponent with tetanus.", 100, true);
+    Asset rustynail("RustyNail", "Infect an opponent with tetanus.", 100, true);
     Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
-    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false );
+    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false, true);
+    Asset HealthPotion("Health Potion", "A magical concoction that seals your wounds and restore your stamina.", 50);
+    Asset OldSorcerersSword("Old Sorcerer's Sword", "A longsword infused with old, powerful magic. Radiant blue runes can be seen along the blade.", 15, true);
 
     
     //Secret Boss Reward
-    Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false);
+    Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false, true);
+    
 
+    //Predetermined asset locations
+    gameMap[17].AddAsset(&OldSorcerersSword);
+    gameMap[17].AddAsset(&HealthPotion);
+
+    gameMap[0].AddAsset(&hammer);
+    gameMap[0].AddAsset(&rustynail);
+
+    
     // randomly add assets to nodes
     int numOfNodes = gameMap.size();
 
@@ -358,7 +369,24 @@ int main()
         // if player wants to take an asset (t hammer)
         if (input.length() > 1 && input[0] == 't')
         {
+            int index = 0;
+            bool foundItem = false;
             string lastWord = getLastWord(input);
+            for (Asset *asset : gameMap[nodePointer].GetAssets())
+            {
+                if (asset->GetName() == lastWord)
+                {
+                    user.EquipAsset(*asset);
+                    foundItem = true;
+                    break;
+                }
+            index++;
+            }
+
+            if (foundItem)
+            {
+                gameMap[nodePointer].RemoveAsset(index);
+            }
         }
 
         // if player wants to attack a monster (a kraken)
