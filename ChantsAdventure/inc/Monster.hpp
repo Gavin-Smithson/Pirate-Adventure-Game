@@ -11,5 +11,6 @@ namespace chants
     {
     public:
         Monster(string name, int health, int fightCoefficient);
+        int monsterAttack();
     };
 }
