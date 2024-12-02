@@ -107,10 +107,15 @@ int main()
     vector<Node> gameMap;
 
     Node Node0(0, "Beach");
+    Node0.Description = "The beach of Seasharp Island\nIt's filled with debries and bodies. It's a wonder no one cleans this place up.\n";
     Node Node1(1, "Riverside Road");
+    Node1.Description = "You walk down a well traveled road. Almost too well traveled.\nThere is a small grove of trees that smell pure and free. The sun beams down onto your face as you walk.\nYou never got moments to yourself on the ship and you bask in the feeling of freedom you have. As you walk toward the forest.\n";
     Node Node2(2, "Forest");
+    Node2.Description = "You've finally made it to the forest. The trees are dense, almost no sunlight makes it through the thick ceiling.\nYou know there will be enemies waiting inside, but you don't know what to expect.\nYou see a skeleton with a chestplate, it looks worn but usable, much better than what you have on now.\n";
     Node Node3(3, "Castle Azure");
+    Node3.Description = "You make it out of the forest and contine through the path\nYou find yourself face to face with a tall castle, it's not exactly grand. It's made out of grey bricks and blue stones on the top of the buildings. It has two spires with pointy tips.\nYou decide to go check it out because there might be some good loot to prepare for the dragon.\n";
     Node Node4(4, "Forbidden Forest");
+    Node4.Description = "Further down the trail you notice a big forest, way larger than the one you've gone through before. There is a sign nailed to a dead tree, you examine the sign and it reads \"Forbidden Forest DON'T ENTER\"\nThe after reading that you feel a chill as you notice a spider climbing up your hand. After promptly squishing it you know this forest is going to be dangerous.\nYou continue onward.\n";
     Node Node5(5, "Roadside Inn");
     Node Node6(6, "Road to Town");
     
@@ -236,6 +241,7 @@ int main()
     
     //Secret Boss Reward
     Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false);
+    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false );
 
     // randomly add assets to nodes
     int numOfNodes = gameMap.size();
@@ -307,3 +313,4 @@ int main()
             gameMap[8].Description = "A bridge lies before you, destroyed by battle. Though \nit once allowed passage across the Python River,\ncrossing this bridge is\nnow impossible.\n";
         }
     }
+}
