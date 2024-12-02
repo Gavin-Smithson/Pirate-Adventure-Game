@@ -58,9 +58,24 @@ namespace chants
     {
         _monsters.push_back(monster);
     }
-
+    bool Node::hasMonster(){
+        return (_monsters.size() >0);
+    }
     vector<Monster *> Node::GetMonsters()
     {
         return _monsters;
+    }
+
+    /// @brief Changes the name of a node to the passed in string.
+    /// @param name
+    void Node::ChangeName(string name)
+    {
+        _name = name;
+    }
+
+    /// @brief Removes the first index in the _connections vector.
+    void Node::RemoveFirstConnection()
+    {
+        _connections.erase(_connections.begin());
     }
 }

@@ -1,76 +1,85 @@
-#include <iostream>
-
-#include <Node.hpp>
-#include <Asset.hpp>
-#include <Player.hpp>
-#include <Monster.hpp>
 #include <AdventureGameMap.hpp>
+#include <Asset.hpp>
+#include <Monster.hpp>
+#include <Node.hpp>
+#include <Player.hpp>
+#include <iostream>
 
 using namespace std;
 using namespace chants;
 
-bool isNumber(const string &str)
-{
-    for (char const &c : str)
-    {
+bool isNumber(const string &str) {
+    for (char const &c : str) {
         if (!std::isdigit(c))
             return false;
     }
     return true;
 }
 
-void AtNode(Node &viewPort)
-{
-    cout << "\033[2J\033[1;1H"; // clear screen
+void AtNode(Node &viewPort) {
+    cout << "\033[2J\033[1;1H";  // clear screen
 
     // Output contents of this Node
     cout << "Location: " << viewPort.GetName() + "\n\n";
     cout << viewPort.Description << endl
          << "There are paths here ..." << endl;
-    for (Node *node : viewPort.GetConnections())
-    {
+    for (Node *node : viewPort.GetConnections()) {
         cout << node->GetId() << " " << node->GetName() << endl;
     }
 
     // Show all assets in Node
-    for (Asset *asset : viewPort.GetAssets())
-    {
+    for (Asset *asset : viewPort.GetAssets()) {
         cout << "Asset at this node: " << asset->GetName() << " " << asset->GetMessage() << " " << asset->GetValue() << endl;
     }
 
     // Show any monsters at this Node
-    for (Monster *monster : viewPort.GetMonsters())
-    {
+    for (Monster *monster : viewPort.GetMonsters()) {
         cout << "Monster at this node: " << monster->GetName() << " " << monster->GetHealth() << endl;
     }
 
     cout << "\n";
 }
+    void fightMonster(Player* user, Monster* monster){
+                    // decide if the user wants to use a health potion
+                    int healOrFight = 0;
+                    cout << "Current health: " << user->GetHealth() << endl;
+                    cout << "Current monster health: " << monster->GetHealth() << endl;
 
-int FindNode(string loc, vector<Node> *gameMap)
-{
+                    cout << "Would you like to use a health potion?" << endl
+                         << "[0] No" << endl
+                         << "[1] Yes" << endl;
+                    cin >> healOrFight;
+                    if (healOrFight ==1) {
+                        user->usePotion();
+                    }
+                        // player attacks monster
+                        cout << "player attacks monster"<<endl;
+                        monster->takeDamage(user->playerAttack());
+                        // monster attacks player
+                        cout << "Monster attacks player" << endl;
+                        user->takeDamage(monster->monsterAttack());
+     
+    }
+
+int FindNode(string loc, vector<Node> *gameMap) {
     int intLoc = -1;
-    if (isNumber(loc))
-    {
+    if (isNumber(loc)) {
         intLoc = stoi(loc);
     }
-    for (Node node : *gameMap)
-    {
+    for (Node node : *gameMap) {
         if (node.GetName() == loc || node.GetId() == intLoc)
             return node.GetId();
     }
     return -1;
 }
 
-int Battle(Player player, Monster monster)
-{
+int Battle(Player player, Monster monster) {
     srand(time(nullptr));
 
     return player.GetHealth();
 }
 
-std::string getLastWord(const std::string &str)
-{
+std::string getLastWord(const std::string &str) {
     // Trim trailing spaces
     std::string trimmed = str;
     trimmed.erase(trimmed.find_last_not_of(' ') + 1);
@@ -79,12 +88,9 @@ std::string getLastWord(const std::string &str)
     size_t pos = trimmed.find_last_of(' ');
 
     // Extract the last word
-    if (pos == std::string::npos)
-    {
-        return trimmed; // No spaces found, return the whole string
-    }
-    else
-    {
+    if (pos == std::string::npos) {
+        return trimmed;  // No spaces found, return the whole string
+    } else {
         return trimmed.substr(pos + 1);
     }
 }
@@ -92,99 +98,149 @@ std::string getLastWord(const std::string &str)
 //
 // All this game setup will be moved to gamemap and out of the main function
 //
+
 int main()
 {
-    // AdventureGameMap _gameMap;
+    //AdventureGameMap _gameMap;
+
 
     vector<Node> gameMap;
 
-    // build all nodes
-    Node home(0, "Home");
-    home.Description = "You are standing in the front yard of a warm and comfortable home that exudes charm and\ntranquility, inviting visitors to feel welcome even before they step inside.\n";
+    Node Node0(0, "Beach");
+    Node Node1(1, "Riverside Road");
+    Node Node2(2, "Forest");
+    Node Node3(3, "Castle Azure");
+    Node Node4(4, "Forbidden Forest");
+    Node Node5(5, "Roadside Inn");
+    Node Node6(6, "Road to Town");
+    
+    Node Node7(7, "Port Town");
+    Node7.Description = "The Port Town is bustling with travelers, fishermen, \nmerchants and the like. The crowd will be difficult to navigate through.\n";
 
-    Node mountain(1, "Mountain");
-    mountain.Description = "A majestic mountain rises grandly from the landscape, its towering\npeak piercing the sky and exuding a sense of awe and reverence.\n";
+    Node Node8(8, "Broken Bridge");
+    Node8.Description = "A bridge lies before you, destroyed by battle. Though\nit once allowed passage across the Python River,\ncrossing this bridge is now impossible. Across\nthe waters, you see an orb atop a pedestal, pulsing\nwith energy. Past the orb, you can see an old\nhomestead in the distance, crumbled and ruined.\nIt seems as though it was set ablaze long ago,\nleaving only ash and rubble.\n";
 
-    Node city(2, "City");
-    city.Description = "A typical city is a bustling hub of activity, blending diverse elements of\narchitecture, culture, and human interaction. It features a variety of neighborhoods,\neach with its own character, from high-rise apartment buildings and business\ndistricts to residential areas and parks.\n";
+    Node Node9(9, "Town");
+    Node Node10(10, "Town Square");
+    Node Node11(11, "Blacksmith's Forge");
+    Node Node12(12, "General Store");
+    
+    Node Node13(13, "Decrepit Mansion");
+    Node13.Description = "You step inside the old mansion. You are greeted by\ncobwebs and disarray. To your left, you see a red\nflag draped across the wall. To your right, you\nsee empty bottles and alchemical instruments. Ahead,\nyou see an orb atop a pedestal, pulsing with magical\nenergy. It gives power to a large teleportation sigil.\nA call for help from somewhere far away.\n";
 
-    Node ocean(3, "Ocean");
-    ocean.Description = "The sea appears restless and chaotic, with surging swells that seem to roil\nand churn, as if the ocean itself is furious, thrashing in a wild, unpredictable rhythm.\n";
+    Node Node14(14, "War-Torn Fields");
+    Node Node15(15, "Abandoned Village");
+    
+    Node Node16(16, "Crimson Castle");
+    Node16.Description = "You arrive at a castle, draped in red flags. Walking\nthrough the open gates, you find the armored corpses\nof knights, torn asunder by some terrible beast.\nThe southern wall was forced open by what appears\nto be simply roots and vines.\n";
+    
+    Node Node17(17, "Teleportation Sigil");
+    Node17.Description = "You arrive in a field of crops and bones. Wheat and\ncorn surround you, crushed and ripped apart by a\npowerful beast. A broken bridge can be seen in one\ndirection. In the other, a distant homestead on fire. Next\nto you sits an orb atop a pedestal. Beneath your feet,\nyou see a familiar sigil, its magical energy now\nextinguished. A strange feeling overcomes you...\n";
 
-    Node island(4, "Island");
-    island.Description = "In the midst of an angry sea, the island appears as a defiant outpost,\nbattered but unyielding against the surrounding chaos. Jagged cliffs rise abruptly\nfrom the churning waters, their rugged faces streaked with dark, wet stone, dripping\nwith the constant assault of waves.\n";
+    Node Node18(18, "Destroyed Homestead");
+    Node18.Description = "Past the crops, you find yourself amidst the flaming ruins of\na homestead. Once the food supplier of a nearby kingdom,\nthe buildings surrounding you now lie crumbled, toppled\nby a terror perhaps even greater than FIXME-DRAGONNAME.\nDozens of armored corpses can be seen spread about\nthe destruction. Adorning their armor, you see\na red insignia.\n";
 
-    Node hut(5, "Hut");
-    hut.Description = "A hut stands as a weathered refuge, small and sturdy against the backdrop of\nthe raging sea. Its wooden walls, gray and splintered from years of exposure to\nsalt and wind, are patched together with whatever materials the island could provide—driftwood,\npalm fronds, and rough-hewn stone.\nThe roof is thatched with dried leaves, lashed tightly\nto withstand the powerful gusts that whip across the island.\n";
-
-    Node quicksand(6, "Quick Sand");
-    quicksand.Description = "A patch of treacherous quicksand lurks, deceptively blending into the surrounding\nterrain. It lies at the edge of a narrow clearing, where the ground transitions\nfrom rocky soil to a stretch of damp, silty earth.\n";
-
-    Node cave(7, "Cave");
-    cave.Description = "Here is a cave nestled into the rocky cliffs that rise above the angry sea, is a cave that\nseems carved by nature's fury over centuries. Its entrance is half-hidden by\nthick vines and jagged boulders, giving it an air of mystery and shelter.\nThe mouth of the cave is wide and low, just tall enough\nfor a person to crouch and enter, and it faces away from\nthe wind, offering some protection from the relentless storm.\n";
-
-    Node beach(8, "Beach");
-    beach.Description = "A beautiful beach stretches out in a graceful curve, bordered by soft, powdery sand that\ngleams white under the sunlight. Each grain feels fine and smooth beneath bare\nfeet, as though sculpted by the gentle hands of time and tide. The shoreline\nis kissed by the crystal-clear waters of the ocean,\nwhere the surf laps quietly and rhythmically, creating a soft,\nsoothing sound with each wave.\n";
+    Node Node19(19, "Dragon's Castle");
 
     // connect nodes paths
-    home.AddConnection(&mountain);
-    home.AddConnection(&city);
 
-    mountain.AddConnection(&home);
-    mountain.AddConnection(&ocean);
-    mountain.AddConnection(&city);
+    Node0.AddConnection(&Node1);
+    Node0.AddConnection(&Node5);
+    Node0.AddConnection(&Node7);
 
-    ocean.AddConnection(&mountain);
-    ocean.AddConnection(&city);
-    ocean.AddConnection(&island);
+    Node1.AddConnection(&Node2);
+    Node1.AddConnection(&Node0);
 
-    city.AddConnection(&home);
-    city.AddConnection(&mountain);
-    city.AddConnection(&ocean);
+    Node2.AddConnection(&Node3);
+    Node2.AddConnection(&Node1);
 
-    island.AddConnection(&ocean);
-    island.AddConnection(&cave);
-    island.AddConnection(&beach);
-    island.AddConnection(&quicksand);
-    island.AddConnection(&hut);
+    Node3.AddConnection(&Node4);
+    Node3.AddConnection(&Node2);
 
-    cave.AddConnection(&home); // one way connection
-    cave.AddConnection(&beach);
-    cave.AddConnection(&island);
+    Node4.AddConnection(&Node9);
+    Node4.AddConnection(&Node3);
 
-    beach.AddConnection(&cave);
-    beach.AddConnection(&island);
+    Node5.AddConnection(&Node6);
+    Node5.AddConnection(&Node0);
 
-    hut.AddConnection(&island);
-    hut.AddConnection(&quicksand);
+    Node6.AddConnection(&Node9);
+    Node6.AddConnection(&Node5);
 
-    quicksand.AddConnection(&hut);
-    quicksand.AddConnection(&island);
+    Node7.AddConnection(&Node8);
+    Node7.AddConnection(&Node0);
 
-    // build map in same order as Node Ids above.
-    // The index of each node in the vector must match it's id.
-    gameMap.push_back(home);
-    gameMap.push_back(mountain);
-    gameMap.push_back(city);
-    gameMap.push_back(ocean);
-    gameMap.push_back(island);
-    gameMap.push_back(hut);
-    gameMap.push_back(quicksand);
-    gameMap.push_back(cave);
-    gameMap.push_back(beach);
+    Node8.AddConnection(&Node7);
+
+    Node9.AddConnection(&Node10);
+    Node9.AddConnection(&Node14);
+    Node9.AddConnection(&Node15);
+    Node9.AddConnection(&Node6);
+    Node9.AddConnection(&Node4);
+
+    Node10.AddConnection(&Node11);
+    Node10.AddConnection(&Node12);
+    Node10.AddConnection(&Node13);
+    Node10.AddConnection(&Node9);
+
+    Node11.AddConnection(&Node10);
+
+    Node12.AddConnection(&Node10);
+
+    Node13.AddConnection(&Node17);
+    Node13.AddConnection(&Node10);
+
+    Node14.AddConnection(&Node19);
+    Node14.AddConnection(&Node9);
+
+    Node15.AddConnection(&Node16);
+    Node15.AddConnection(&Node9);
+
+    Node16.AddConnection(&Node19);
+    Node16.AddConnection(&Node15);
+    
+    Node17.AddConnection(&Node18);
+
+    Node18.AddConnection(&Node16);
+
+    //build map in same order as Node Ids above.
+    //The index of each node in the vector must match it's id.
+    gameMap.push_back(Node0);
+    gameMap.push_back(Node1);
+    gameMap.push_back(Node2);
+    gameMap.push_back(Node3);
+    gameMap.push_back(Node4);
+    gameMap.push_back(Node5);
+    gameMap.push_back(Node6);
+    gameMap.push_back(Node7);
+    gameMap.push_back(Node8);
+    gameMap.push_back(Node9);
+    gameMap.push_back(Node10);
+    gameMap.push_back(Node11);
+    gameMap.push_back(Node12);
+    gameMap.push_back(Node13);
+    gameMap.push_back(Node14);
+    gameMap.push_back(Node15);
+    gameMap.push_back(Node16);
+    gameMap.push_back(Node17);
+    gameMap.push_back(Node18);
+    gameMap.push_back(Node19);
+
+ 
 
     // build assets
-    //
     Asset flashlight("Flashlight", "A flashlight can be very useful, especially in dark places.", 50, false);
     Asset hammer("Hammer", "A hammer to help defend yourself", 150, true);
     Asset purplehaze("Purple haze", "A spell that renders opponents helpless.", 250, true);
     Asset rustynail("Rusty nail", "Infect an opponent with tetanus.", 100, true);
     Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
+    
+    //Secret Boss Reward
+    Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false);
 
     // randomly add assets to nodes
     int numOfNodes = gameMap.size();
 
-    srand(time(nullptr)); // seed the random number generator
+    srand(time(nullptr));  // seed the random number generator
     int randNode = rand() % numOfNodes;
     gameMap[randNode].AddAsset(&flashlight);
 
@@ -224,74 +280,30 @@ int main()
     gameMap[randNode].AddMonster(&griffin);
 
     // get ready to play game below
-    int nodePointer = 0; // start at home
+    int nodePointer = 0;  // start at home
     string input;
+    Player user("tempName", 100, 0);
 
     // +++++++++ game loop ++++++++++
+
     while (true)
     {
-        // show current node info
-        AtNode(gameMap[nodePointer]);
-
-        cout << "Go to node? e(x)it: ";
-        getline(cin, input);
-
-        // exit app?
-        if (input == "x")
-            break;
-
-        int nodeAddr = -1;
-        if (isNumber(input))
+        //Secret path
+        if (gameMap[nodePointer] == Node17)
         {
-            nodeAddr = stoi(input);
+            //Changing the name of the teleporter to the name of the location
+            Node17.ChangeName("Crop Field");
+            gameMap[17].ChangeName("Crop Field");
+
+            //Node16 is changed to reflect the defeat of the secret boss
+            gameMap[16].Description = "You arrive at a castle draped in red flags. Walking\nthrough the open gate, you are greeted with cheers\nand applause. The beast you slew defeated their very\nbest knights and would have felled this castle. You\nare presented with their finest armor, a gift from\nthe castle's lord.\n";
+            gameMap[16].AddAsset(&LordsArmor);
+
+            //Removing the connection to Node17
+            gameMap[13].RemoveFirstConnection();
+
+            //Changing Node13 and Node8 to reflect the usage of the secret path
+            gameMap[13].Description = "You step inside the old mansion. The orb is now\ndormant, its magical energy extinguished. Its call answered.\n";
+            gameMap[8].Description = "A bridge lies before you, destroyed by battle. Though \nit once allowed passage across the Python River,\ncrossing this bridge is\nnow impossible.\n";
         }
-
-        bool validConnection = false;
-        for (Node *node : gameMap[nodePointer].GetConnections())
-        {
-            if (node->GetId() == nodeAddr)
-            {
-                validConnection = true;
-            }
-        }
-
-        int dir = -1;
-        if (validConnection)
-        {
-            dir = FindNode(input, &gameMap);
-        }
-
-        // if player wants to take an asset (t hammer)
-        if (input.length() > 1 && input[0] == 't')
-        {
-            string lastWord = getLastWord(input);
-        }
-
-        // if player wants to attack a monster (a kraken)
-        if (input.length() > 1 && input[0] == 'a')
-        {
-            string lastWord = getLastWord(input);
-        }
-
-        // if player wants to drop an asset (d hammer)
-        if (input.length() > 1 && input[0] == 'd')
-        {
-            string lastWord = getLastWord(input);
-        }
-
-        // if player wants to inspect an asset (i hammer)
-        if (input.length() > 1 && input[0] == 'i')
-        {
-            string lastWord = getLastWord(input);
-        }
-
-        cout << "Dir: " << dir << endl;
-        if (dir >= 0)
-            nodePointer = dir;
-        else
-            cout << "Not a valid node address\n";
-
-        cout << endl;
     }
-    return 0;
-}
