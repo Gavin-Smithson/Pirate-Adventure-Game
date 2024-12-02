@@ -127,7 +127,7 @@ int main()
     Node7.Description = "The Port Town is bustling with travelers, fishermen, \nmerchants and the like. The crowd will be difficult to navigate through.\n";
 
     Node Node8(8, "Broken Bridge");
-    Node8.Description = "A bridge lies before you, destroyed by battle. Though\nit once allowed passage across the Python River,\ncrossing this bridge is now impossible. Across\nthe waters, you see an orb atop a pedestal, pulsing\nwith energy. Past the orb, you can see an old\nhomestead in the distance, crumbled and ruined.\nIt seems as though it was set ablaze long ago,\nleaving only ash and rubble.\n";
+    Node8.Description = "A bridge lies before you, destroyed by battle. Though\nit once allowed passage across the Python River,\ncrossing this bridge is now impossible. Across\nthe waters, you see an orb atop a pedestal, pulsing\nwith energy. Past the orb, you can see a homestead\nin the distance, set ablaze.\n";
 
     Node Node9(9, "Town Entrance");
     Node9.Description = "A tall, stone wall surrounds the town of Seaworthy. \nThe sounds of chatter spill from over the wall. The \nentrance to town has two guards stationed outside \nthe gate. After telling them of your quest to defeat \nthe dragon that has plauged the island, they happily \nlet you in.\n.";
@@ -248,10 +248,11 @@ int main()
     Asset purplehaze("Purple haze", "A spell that renders opponents helpless.", 250, true);
     Asset rustynail("Rusty nail", "Infect an opponent with tetanus.", 100, true);
     Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
+    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false );
+
     
     //Secret Boss Reward
     Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false);
-    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false );
 
     // randomly add assets to nodes
     int numOfNodes = gameMap.size();
@@ -301,12 +302,16 @@ int main()
     Player user("tempName", 100, 0);
 
     // +++++++++ game loop ++++++++++
+    
+    bool visitSecret = false;
 
     while (true)
     {
         //Secret path
         if (gameMap[nodePointer] == Node17)
         {
+            visitSecret = true;
+
             //Changing the name of the teleporter to the name of the location
             Node17.ChangeName("Crop Field");
             gameMap[17].ChangeName("Crop Field");
@@ -322,5 +327,76 @@ int main()
             gameMap[13].Description = "You step inside the old mansion. The orb is now\ndormant, its magical energy extinguished. Its call answered.\n";
             gameMap[8].Description = "A bridge lies before you, destroyed by battle. Though \nit once allowed passage across the Python River,\ncrossing this bridge is\nnow impossible.\n";
         }
+
+        else if (gameMap[nodePointer] == Node16 && visitSecret == false)
+        {
+            gameMap[13].RemoveFirstConnection();
+            gameMap[13].Description = "You step inside the old mansion. You are greeted by\ncobwebs and disarray. To your left, you see a red\nflag draped across the wall. To your right, you\nsee empty bottles and alchemical instruments. Ahead,\nyou see an orb atop a pedestal.\n";
+        }
+
+        // show current node info
+        AtNode(gameMap[nodePointer]);
+
+        cout << "Go to node? e(x)it: ";
+        getline(cin, input);
+
+        // exit app?
+        if (input == "x")
+            break;
+
+        int nodeAddr = -1;
+        if (isNumber(input))
+        {
+            nodeAddr = stoi(input);
+        }
+
+        bool validConnection = false;
+        for (Node *node : gameMap[nodePointer].GetConnections())
+        {
+            if (node->GetId() == nodeAddr)
+            {
+                validConnection = true;
+            }
+        }
+
+        int dir = -1;
+        if (validConnection)
+        {
+            dir = FindNode(input, &gameMap);
+        }
+
+        // if player wants to take an asset (t hammer)
+        if (input.length() > 1 && input[0] == 't')
+        {
+            string lastWord = getLastWord(input);
+        }
+
+        // if player wants to attack a monster (a kraken)
+        if (input.length() > 1 && input[0] == 'a')
+        {
+            string lastWord = getLastWord(input);
+        }
+
+        // if player wants to drop an asset (d hammer)
+        if (input.length() > 1 && input[0] == 'd')
+        {
+            string lastWord = getLastWord(input);
+        }
+
+        // if player wants to inspect an asset (i hammer)
+        if (input.length() > 1 && input[0] == 'i')
+        {
+            string lastWord = getLastWord(input);
+        }
+
+        cout << "Dir: " << dir << endl;
+        if (dir >= 0)
+            nodePointer = dir;
+        else
+            cout << "Not a valid node address\n";
+
+        cout << endl;
     }
+    return 0;
 }
+

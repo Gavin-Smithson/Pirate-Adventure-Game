@@ -23,5 +23,6 @@ namespace chants
         int GetValue();
         bool isOffensive();
         bool isDefensive();
+        bool isHealing();
     };
 }
