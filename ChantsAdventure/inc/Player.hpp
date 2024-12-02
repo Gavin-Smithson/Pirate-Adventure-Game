@@ -29,6 +29,8 @@ namespace chants
         void UseAsset(Asset asset);
         void RemoveAsset(int index);
 
+        void TakeAsset(Asset asset);
+        bool EquipAsset(Asset asset);
         void DisplayEquipment();
         int playerAttack();
         void usePotion();

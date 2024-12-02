@@ -238,10 +238,11 @@ int main()
     Asset purplehaze("Purple haze", "A spell that renders opponents helpless.", 250, true);
     Asset rustynail("Rusty nail", "Infect an opponent with tetanus.", 100, true);
     Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
+    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false );
+
     
     //Secret Boss Reward
     Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false);
-    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false );
 
     // randomly add assets to nodes
     int numOfNodes = gameMap.size();
