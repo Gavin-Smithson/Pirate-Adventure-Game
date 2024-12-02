@@ -58,7 +58,9 @@ namespace chants
     {
         _monsters.push_back(monster);
     }
-
+    bool Node::hasMonster(){
+        return (_monsters.size() >0);
+    }
     vector<Monster *> Node::GetMonsters()
     {
         return _monsters;

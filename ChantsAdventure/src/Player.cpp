@@ -105,4 +105,44 @@ namespace chants
             }
         }
     }
+
+    // need to create function to find a potion in the assets vector, then call the useAsset method on it
+    void  Player::usePotion(){
+        bool foundHealthPotion = false;
+        for (Asset asset : _assets){
+            // asset is healing potion
+            if (asset.isOffensive() == false && asset.isDefensive() == false){
+                UseAsset(asset);
+                foundHealthPotion= true;
+                break;
+            }
+
+        }
+        if (foundHealthPotion == false){
+            cout << " No health potions in inventory"<< endl;
+        }
+
+    }
+
+    int Player::playerAttack(){
+        int diceRoll = rollDice();
+        return diceRoll + GetAttack() + _fightCoefficient;
+    }
+
+void Player::takeDamage(int damage) {
+    int netDamage = damage - GetDefense();
+
+    if (netDamage <= 0) {
+        cout <<"No damage taken" <<endl;
+        return;
+    }
+    
+    _health -=  netDamage;
+
+    // Ensure health doesn't go below zero
+    if (_health < 0) {
+        _health = 0;
+    }
+}
+
 }

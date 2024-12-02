@@ -30,5 +30,8 @@ namespace chants
         void RemoveAsset(int index);
 
         void DisplayEquipment();
+        int playerAttack();
+        void usePotion();
+        void takeDamage(int damage) override;
     };
 }
