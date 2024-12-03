@@ -43,11 +43,11 @@ void AtNode(Node &viewPort) {
                     // decide if the user wants to use a health potion
                     int healOrFight = 0;
                     cout << "Current health: " << user->GetHealth() << endl;
-                    cout << "Current monster health: " << monster->GetHealth() << endl;
+                    cout << monster->GetName() << " health: " << monster->GetHealth() << endl;
 
-                    cout << "Would you like to use a health potion?" << endl
-                         << "[0] No" << endl
-                         << "[1] Yes" << endl;
+                    cout << "What would you like to do?" << endl
+                         << "[0] Attack" << endl
+                         << "[1] Heal" << endl;
                     cin >> healOrFight;
                     if (healOrFight ==1) {
                         user->usePotion();
@@ -247,13 +247,13 @@ int main()
     Asset purplehaze("Purple haze", "A spell that renders opponents helpless.", 250, true);
     Asset rustynail("RustyNail", "Infect an opponent with tetanus.", 100, true);
     Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
-    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false, true);
-    Asset HealthPotion("Health Potion", "A magical concoction that seals your wounds and restore your stamina.", 50);
-    Asset OldSorcerersSword("Old Sorcerer's Sword", "A longsword infused with old, powerful magic. Radiant blue runes can be seen along the blade.", 15, true);
+    Asset RustyChestplate("RustyCheckplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false, true);
+    Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.", 50);
+    Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. Radiant blue runes can be seen along the blade.", 15, true);
 
     
     //Secret Boss Reward
-    Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false, true);
+    Asset LordsArmor("LordsArmor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false, true);
     
 
     //Predetermined asset locations
@@ -285,11 +285,11 @@ int main()
 
     // build monsters
     // randomly add monsters to nodes
-    Monster ghoul("ghoul", 5000, 100);
-    Monster goblin("goblin", 6000, 100);
-    Monster kraken("kraken", 7000, 100);
-    Monster demon("demon", 5000, 100);
-    Monster griffin("griffin", 4000, 100);
+    Monster ghoul("ghoul", 5, 100);
+    Monster goblin("goblin", 6, 100);
+    Monster kraken("kraken", 7, 100);
+    Monster demon("demon", 5, 100);
+    Monster griffin("griffin", 4, 100);
 
     randNode = rand() % numOfNodes;
     gameMap[randNode].AddMonster(&ghoul);
@@ -347,6 +347,31 @@ int main()
         // show current node info
         AtNode(gameMap[nodePointer]);
 
+        // code for how a player and monster would fight
+        // if the current node has a monster
+        if (gameMap[nodePointer].hasMonster()) {
+            // copy the list of pointers to monsters in the room
+            vector<Monster *> currMonsters = gameMap[nodePointer].GetMonsters();
+
+            // iterate through all the monsters in the room and fight them
+            int i = 0;
+            while (i < currMonsters.size()) {
+                // current monster in the list of monsters
+                Monster *currMonster = currMonsters[i];
+
+                // keep attacking the monster till their health is 0
+                while (currMonster->GetHealth() > 0) {
+                    fightMonster(&user, currMonster);
+                    if (user.GetHealth() <= 0) {
+                        cout << "You died!" << endl
+                                << "current room: " << nodePointer << endl;
+                            return 0;
+                        }   
+                }
+                    // fight next monster
+                    i++;
+            }
+        }
         cout << "Go to node? e(x)it: ";
         getline(cin, input);
 
