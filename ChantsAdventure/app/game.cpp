@@ -1,3 +1,9 @@
+/**
+ * @file game.cpp
+ * @brief This is the execution file for the adventure game
+ * @authors Marcos Carvajal, Gavin Smith, Or Butbul, Lauren Harman
+ */
+
 #include <AdventureGameMap.hpp>
 #include <Asset.hpp>
 #include <Monster.hpp>
