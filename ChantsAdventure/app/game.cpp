@@ -327,7 +327,7 @@ int main()
     while (true)
     {
         //Secret path
-        if (gameMap[nodePointer] == Node17)
+        if (gameMap[nodePointer] == Node17 & visitSecret == false)
         {
             visitSecret = true;
 
