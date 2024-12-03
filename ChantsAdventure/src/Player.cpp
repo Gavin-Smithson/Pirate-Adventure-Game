@@ -97,7 +97,7 @@ namespace chants
             }
         }
         if (!foundHealthPotion){
-            cout << " No health potions in inventory"<< endl;
+            cout << "No health potions in inventory"<< endl;
         }
 
     }
@@ -167,5 +167,16 @@ namespace chants
         _Equipment[assetIndex] = asset;
 
         return true;
+    }
+
+    int Player::GetNumPotions()
+    {
+        int numPotions = 0;
+        for (Asset asset : _assets)
+        {
+            numPotions += 1;
+        }
+
+        return numPotions;
     }
 }

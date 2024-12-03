@@ -35,5 +35,6 @@ namespace chants
         int playerAttack();
         void usePotion();
         void takeDamage(int damage) override;
+        int GetNumPotions();
     };
 }

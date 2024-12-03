@@ -47,10 +47,18 @@ void AtNode(Node &viewPort) {
 
                     cout << "What would you like to do?" << endl
                          << "[0] Attack the Monster" << endl
-                         << "[1] Use a Health Potion" << endl;
+                         << "[1] Use a Health Potion [" << to_string(user->GetNumPotions()) << " left]" << endl;
                     cin >> healOrFight;
-                    if (healOrFight ==1) {
-                        user->usePotion();
+                    if (healOrFight == 1) {
+                        if(user->GetHealth() == user->maxHealth)
+                        {
+                            cout << "Health is already full." << endl;
+                        }
+                        else
+                        {
+                            user->usePotion();
+                            cout << "You drank a potion. Health restored to max." << endl;
+                        }
                     }
                         // player attacks monster
                         cout << "Player attacks monster"<< endl;
@@ -262,6 +270,7 @@ int main()
 
     gameMap[0].AddAsset(&hammer);
     gameMap[0].AddAsset(&rustynail);
+    gameMap[0].AddAsset(&HealthPotion);
 
     
     // randomly add assets to nodes
@@ -352,6 +361,7 @@ int main()
         if (gameMap[nodePointer].hasMonster()) {
             // copy the list of pointers to monsters in the room
             vector<Monster *> currMonsters = gameMap[nodePointer].GetMonsters();
+            cout << "\nAn enemy approaches!" << endl;
 
             // iterate through all the monsters in the room and fight them
             int i = 0;
@@ -376,9 +386,14 @@ int main()
                     i++;
             }
         string input;
+        string enterInput;
+        cout << "You win! Enter any key to return.";
+        getline(cin, enterInput);
         cin.get();
         continue;
         }
+
+        cout << "Health Potions: " << to_string(user.GetNumPotions()) << endl;
         cout << "Go to node? e(x)it: ";
         getline(cin, input);
 
@@ -417,7 +432,7 @@ int main()
             {
                 if (asset->GetName() == lastWord)
                 {
-                    user.EquipAsset(*asset);
+                    user.TakeAsset(*asset);
                     foundItem = true;
                     break;
                 }
