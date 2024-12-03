@@ -108,12 +108,16 @@ int main()
 
     Node Node0(0, "Beach");
     Node0.Description = "The beach of Seasharp Island\nIt's filled with debries and bodies. It's a wonder no one cleans this place up.\n";
+
     Node Node1(1, "Riverside Road");
     Node1.Description = "You walk down a well traveled road. Almost too well traveled.\nThere is a small grove of trees that smell pure and free. The sun beams down onto your face as you walk.\nYou never got moments to yourself on the ship and you bask in the feeling of freedom you have. As you walk toward the forest.\n";
+
     Node Node2(2, "Forest");
     Node2.Description = "You've finally made it to the forest. The trees are dense, almost no sunlight makes it through the thick ceiling.\nYou know there will be enemies waiting inside, but you don't know what to expect.\nYou see a skeleton with a chestplate, it looks worn but usable, much better than what you have on now.\n";
+    
     Node Node3(3, "Castle Azure");
     Node3.Description = "You make it out of the forest and contine through the path\nYou find yourself face to face with a tall castle, it's not exactly grand. It's made out of grey bricks and blue stones on the top of the buildings. It has two spires with pointy tips.\nYou decide to go check it out because there might be some good loot to prepare for the dragon.\n";
+    
     Node Node4(4, "Forbidden Forest");
     Node4.Description = "Further down the trail you notice a big forest, way larger than the one you've gone through before. There is a sign nailed to a dead tree, you examine the sign and it reads \"Forbidden Forest DON'T ENTER\"\nThe after reading that you feel a chill as you notice a spider climbing up your hand. After promptly squishing it you know this forest is going to be dangerous.\nYou continue onward.\n";
     
@@ -138,14 +142,18 @@ int main()
     Node Node11(11, "Blacksmith's Forge");
     Node10.Description = "The sound of the Blacksmith's hammer echos into the \nstreets. The forge has a large fire pit in the center \nwith white hot metal inside a crucible. The heat \nfrom the fire makes you sweat. Gold sat heavy in \nyour pocket, years of piracy meant your pockets \nwere never light.\n";
 
-    Node Node12(12, "General Store"); // Gold sat heavy in \nyour pocket, years of piracy meant your pockets \nwere never light.\n" ----> to explain why we have money without needing to add money to inventory
+    Node Node12(12, "General Store");
+    Node10.Description = "The bell above the general store rand as you walked in. The shop keeper greets you as you walked in Gold sat heavy in \nyour pocket, years of piracy meant your pockets \nwere never light.\n";
     
     Node Node13(13, "Decrepit Mansion");
     Node13.Description = "You step inside the old mansion. You are greeted by\ncobwebs and disarray. To your left, you see a red\nflag draped across the wall. To your right, you\nsee empty bottles and alchemical instruments. Ahead,\nyou see an orb atop a pedestal, pulsing with magical\nenergy. It gives power to a large teleportation sigil.\nA call for help from somewhere far away.\n";
 
-    Node Node14(14, "War-Torn Fields");
+    Node Node14(14, "Mountain Pass");
+    Node14.Description = "Steep, jagged rocks make up the face of a white capped mountain";
+
     Node Node15(15, "Abandoned Village");
-    
+    Node15.Description = "";
+
     Node Node16(16, "Crimson Castle");
     Node16.Description = "You arrive at a castle, draped in red flags. Walking\nthrough the open gates, you find the armored corpses\nof knights, torn asunder by some terrible beast.\nThe southern wall was forced open by what appears\nto be simply roots and vines.\n";
     
@@ -156,6 +164,7 @@ int main()
     Node18.Description = "Past the crops, you find yourself amidst the flaming ruins of\na homestead. Once the food supplier of a nearby kingdom,\nthe buildings surrounding you now lie crumbled, toppled\nby a terror perhaps even greater than FIXME-DRAGONNAME.\nDozens of armored corpses can be seen spread about\nthe destruction. Adorning their armor, you see\na red insignia.\n";
 
     Node Node19(19, "Dragon's Castle");
+    Node19.Description = "";
 
     // connect nodes paths
 
