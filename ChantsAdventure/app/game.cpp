@@ -327,7 +327,7 @@ int main()
     while (true)
     {
         //Secret path
-        if (gameMap[nodePointer] == Node17 & visitSecret == false)
+        if (gameMap[nodePointer] == Node17 && visitSecret == false)
         {
             visitSecret = true;
 
@@ -387,7 +387,7 @@ int main()
             }
         string input;
         string enterInput;
-        cout << "You win! Enter any key to return.";
+        cout << "You win! Press enter to return.";
         getline(cin, enterInput);
         cin.get();
         continue;
