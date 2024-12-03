@@ -83,4 +83,9 @@ namespace chants
     {
         _assets.erase(_assets.begin() + index);
     }
+
+    void Node::RemoveMonster()
+    {
+        _monsters.erase(_monsters.begin());
+    }
 }

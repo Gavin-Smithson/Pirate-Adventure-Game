@@ -46,14 +46,14 @@ void AtNode(Node &viewPort) {
                     cout << monster->GetName() << " health: " << monster->GetHealth() << endl;
 
                     cout << "What would you like to do?" << endl
-                         << "[0] Attack" << endl
-                         << "[1] Heal" << endl;
+                         << "[0] Attack the Monster" << endl
+                         << "[1] Use a Health Potion" << endl;
                     cin >> healOrFight;
                     if (healOrFight ==1) {
                         user->usePotion();
                     }
                         // player attacks monster
-                        cout << "player attacks monster"<<endl;
+                        cout << "Player attacks monster"<< endl;
                         monster->takeDamage(user->playerAttack());
                         // monster attacks player
                         cout << "Monster attacks player" << endl;
@@ -366,11 +366,18 @@ int main()
                         cout << "You died!" << endl
                                 << "current room: " << nodePointer << endl;
                             return 0;
-                        }   
+                        }
+                if (currMonster->GetHealth() <= 0)
+                {
+                    gameMap[nodePointer].RemoveMonster();
+                }
                 }
                     // fight next monster
                     i++;
             }
+        string input;
+        cin.get();
+        continue;
         }
         cout << "Go to node? e(x)it: ";
         getline(cin, input);
