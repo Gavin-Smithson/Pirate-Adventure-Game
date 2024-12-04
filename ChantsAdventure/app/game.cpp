@@ -111,7 +111,7 @@ int main()
 {
     //AdventureGameMap _gameMap;
 
-
+    //FIXME: ---> Why isnt gameMap linked/highlighted/whatever it is called
     vector<Node> gameMap;
 
     Node Node0(0, "Beach");
@@ -260,14 +260,22 @@ int main()
  
 
     // build assets
-    Asset flashlight("Flashlight", "A flashlight can be very useful, especially in dark places.", 50, false);
-    Asset hammer("Hammer", "A hammer to help defend yourself", 150, true);
-    Asset purplehaze("Purple haze", "A spell that renders opponents helpless.", 250, true);
-    Asset rustynail("RustyNail", "Infect an opponent with tetanus.", 100, true);
-    Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
-    Asset RustyChestplate("RustyCheckplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false, true);
-    Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.", 50);
+
+    //Asset flashlight("Flashlight", "A flashlight can be very useful, especially in dark places.", 50, false);
+    //Asset hammer("Hammer", "A hammer to help defend yourself", 150, true);
+    //Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
+
+    // Weapons
+    Asset IronSword("IronSword", "A small, simple iron sword. The blade isn't very sharp.", 15, true);
+    Asset PurpleHaze("PurpleHaze", "A spell that renders opponents helpless.", 250, true);
+    Asset RustyNail("RustyNail", "Infect an opponent with tetanus.", 100, true);
     Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. Radiant blue runes can be seen along the blade.", 15, true);
+
+    // Armor
+    Asset RustyChestPlate("RustyCheckplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false, true);
+
+    // Health
+    Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.", 50);
 
     
     //Secret Boss Reward
@@ -278,8 +286,8 @@ int main()
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
-    gameMap[0].AddAsset(&hammer);
-    gameMap[0].AddAsset(&rustynail);
+    //gameMap[0].AddAsset(&hammer);
+    gameMap[0].AddAsset(&RustyNail);
     gameMap[0].AddAsset(&HealthPotion);
 
     
@@ -288,22 +296,23 @@ int main()
 
     srand(time(nullptr));  // seed the random number generator
     int randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&flashlight);
+    //gameMap[randNode].AddAsset(&flashlight);
 
     randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&hammer);
+    //gameMap[randNode].AddAsset(&hammer);
 
     randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&purplehaze);
+    gameMap[randNode].AddAsset(&RustyNail);
 
     randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&rustynail);
+    gameMap[randNode].AddAsset(&RustyNail);
 
     randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&drinkingwater);
+    //gameMap[randNode].AddAsset(&drinkingwater);
 
     // build monsters
     // randomly add monsters to nodes
+    // FIXME: --> what is this and can someone explain it to me - Lauren
     Monster ghoul("ghoul", 5, 100);
     Monster goblin("goblin", 6, 100);
     Monster kraken("kraken", 7, 100);
@@ -399,7 +408,7 @@ int main()
                 }
                     // fight next monster
                     i++;
-            }
+            } 
         string input;
         string enterInput;
         cout << "You win! Press enter to return.";
@@ -431,11 +440,15 @@ int main()
             }
         }
 
+        //FIXME: ---> game map is not a linked/valid variable here
         int dir = -1;
         if (validConnection)
         {
             dir = FindNode(input, &gameMap);
         }
+
+        // FIXME: make sure we have at least 2 items with I(inspect), T(Take), D(Drop), A(attack)
+        // FIXME: We no longer have hammer below
 
         // if player wants to take an asset (t hammer)
         if (input.length() > 1 && input[0] == 't')
@@ -443,21 +456,6 @@ int main()
             int index = 0;
             bool foundItem = false;
             string lastWord = getLastWord(input);
-            for (Asset *asset : gameMap[nodePointer].GetAssets())
-            {
-                if (asset->GetName() == lastWord)
-                {
-                    user.TakeAsset(*asset);
-                    foundItem = true;
-                    break;
-                }
-            index++;
-            }
-
-            if (foundItem)
-            {
-                gameMap[nodePointer].RemoveAsset(index);
-            }
         }
 
         // if player wants to attack a monster (a kraken)
