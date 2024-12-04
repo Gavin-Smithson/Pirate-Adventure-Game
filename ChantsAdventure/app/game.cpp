@@ -46,14 +46,22 @@ void AtNode(Node &viewPort) {
                     cout << monster->GetName() << " health: " << monster->GetHealth() << endl;
 
                     cout << "What would you like to do?" << endl
-                         << "[0] Attack" << endl
-                         << "[1] Heal" << endl;
+                         << "[0] Attack the Monster" << endl
+                         << "[1] Use a Health Potion [" << to_string(user->GetNumPotions()) << " left]" << endl;
                     cin >> healOrFight;
-                    if (healOrFight ==1) {
-                        user->usePotion();
+                    if (healOrFight == 1) {
+                        if(user->GetHealth() == user->maxHealth)
+                        {
+                            cout << "Health is already full." << endl;
+                        }
+                        else
+                        {
+                            user->usePotion();
+                            cout << "You drank a potion. Health restored to max." << endl;
+                        }
                     }
                         // player attacks monster
-                        cout << "player attacks monster"<<endl;
+                        cout << "Player attacks monster"<< endl;
                         monster->takeDamage(user->playerAttack());
                         // monster attacks player
                         cout << "Monster attacks player" << endl;
@@ -272,6 +280,7 @@ int main()
 
     gameMap[0].AddAsset(&hammer);
     gameMap[0].AddAsset(&rustynail);
+    gameMap[0].AddAsset(&HealthPotion);
 
     
     // randomly add assets to nodes
@@ -295,6 +304,11 @@ int main()
 
     // build monsters
     // randomly add monsters to nodes
+    Monster ghoul("ghoul", 5, 100);
+    Monster goblin("goblin", 6, 100);
+    Monster kraken("kraken", 7, 100);
+    Monster demon("demon", 5, 100);
+    Monster griffin("griffin", 4, 100);
     Monster ghoul("ghoul", 5, 100);
     Monster goblin("goblin", 6, 100);
     Monster kraken("kraken", 7, 100);
@@ -328,7 +342,7 @@ int main()
     while (true)
     {
         //Secret path
-        if (gameMap[nodePointer] == Node17)
+        if (gameMap[nodePointer] == Node17 && visitSecret == false)
         {
             visitSecret = true;
 
@@ -362,6 +376,7 @@ int main()
         if (gameMap[nodePointer].hasMonster()) {
             // copy the list of pointers to monsters in the room
             vector<Monster *> currMonsters = gameMap[nodePointer].GetMonsters();
+            cout << "\nAn enemy approaches!" << endl;
 
             // iterate through all the monsters in the room and fight them
             int i = 0;
@@ -376,12 +391,24 @@ int main()
                         cout << "You died!" << endl
                                 << "current room: " << nodePointer << endl;
                             return 0;
-                        }   
+                        }
+                if (currMonster->GetHealth() <= 0)
+                {
+                    gameMap[nodePointer].RemoveMonster();
+                }
                 }
                     // fight next monster
                     i++;
             }
+        string input;
+        string enterInput;
+        cout << "You win! Press enter to return.";
+        getline(cin, enterInput);
+        cin.get();
+        continue;
         }
+
+        cout << "Health Potions: " << to_string(user.GetNumPotions()) << endl;
         cout << "Go to node? e(x)it: ";
         getline(cin, input);
 
@@ -420,7 +447,7 @@ int main()
             {
                 if (asset->GetName() == lastWord)
                 {
-                    user.EquipAsset(*asset);
+                    user.TakeAsset(*asset);
                     foundItem = true;
                     break;
                 }
