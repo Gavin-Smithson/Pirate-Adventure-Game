@@ -53,6 +53,27 @@ namespace chants
         Node Node18(18, "Destroyed Homestead");
         Node Node19(19, "Dragon's Castle");
 
+        // NEW NODES ADDED HERE -----------------------------------------------------------------------------------------------------------------------------
+
+        // FIXME: Fix the spacing of the words for the nodes
+        // FIXME: How should the formating be for these descriptions, just based off what we see (above) or give a description of what we are feeling AND seeing (below)
+        // FIXME: What is the name of the port, what season is it, why is the adventurer here?
+
+        Node ship(9, "Ship"); //FIXME: Change this to node 0
+        ship.Description = "Wood creaks below you as the ship rocks in the waves. You can taste the \nsaltwater in the air as the shore approaches in the distance.\n";
+
+
+        Node port(10, "Port"); //FIXME: Change this to node 1
+        // FIXME: What should the player see/do in the port, it is marked blue for story, should they just decide which of the 3 paths ahead to take (to nodes 2,3, and 5)
+        port.Description = "The <FIXME: AddPortName> port was bustling with travelers, fishermen, \nmerchants and the like. The crowd would be difficult to navigate through.\n";
+
+        
+
+        // NEW CONNECTIONS TO NODES -------------------------------------------------------------------------------------------------------------------------
+        ship.AddConnection(&port);
+        //ship.AddConnection(&);
+
+
         // connect nodes paths
         Node0.AddConnection(&Node1);
         Node0.AddConnection(&Node5);

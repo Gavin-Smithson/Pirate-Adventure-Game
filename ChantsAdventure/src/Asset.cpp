@@ -36,4 +36,9 @@ namespace chants
         return _isDefensive;
     }
 
+    bool Asset::isHealing() 
+    {
+        return  !_isOffensive && !_isDefensive ? true : false;
+    }
+
 }

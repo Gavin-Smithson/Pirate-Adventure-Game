@@ -41,5 +41,8 @@ namespace chants
 
         void ChangeName(string);
         void RemoveFirstConnection();
+
+        void RemoveAsset(int);
+        void RemoveMonster();
     };
 }
