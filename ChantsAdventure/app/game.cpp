@@ -266,10 +266,6 @@ int main()
     // FIXME: do the assets need line breaks at the end?
     // FIXME: are all the true/false values correct for the assets --> need someone else to check if i have it right - Lauren
 
-    //Asset flashlight("Flashlight", "A flashlight can be very useful, especially in dark places.", 50, false);
-    //Asset hammer("Hammer", "A hammer to help defend yourself", 150, true);
-    //Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
-
     // Weapons
     Asset WoodenPlank("WoodenPlank", "A warped and shattered wooden plank.\n", 50, true);
     Asset IronSword("IronSword", "A small, simple iron sword. The blade isn't very sharp.\n", 150, true);
@@ -297,8 +293,6 @@ int main()
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
-    //gameMap[0].AddAsset(&hammer);
-    
 
     
     // randomly add assets to nodes
@@ -322,12 +316,6 @@ int main()
 
 
     // build monsters
-    // FIXME: --> what is this and can someone explain it to me - Lauren
-    Monster ghoul("ghoul", 5, 100);
-    Monster goblin("goblin", 6, 100);
-    Monster kraken("kraken", 7, 100);
-    Monster demon("demon", 5, 100);
-    Monster griffin("griffin", 4, 100);
     Monster ghoul("ghoul", 5, 100);
     Monster goblin("goblin", 6, 100);
     Monster kraken("kraken", 7, 100);
