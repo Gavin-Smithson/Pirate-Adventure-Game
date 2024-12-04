@@ -121,10 +121,10 @@ namespace chants
         int netDamage = damage - GetDefense();
 
         if (netDamage <= 0) {
-            cout <<"No damage taken" <<endl;
+            cout <<"No damage taken\n" <<endl;
             return;
         }
-        
+        cout << GetName() << " took " << to_string(netDamage) << " damage!\n";
         _health -=  netDamage;
 
         // Ensure health doesn't go below zero

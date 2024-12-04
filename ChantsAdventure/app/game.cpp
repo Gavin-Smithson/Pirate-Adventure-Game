@@ -4,6 +4,7 @@
 #include <Node.hpp>
 #include <Player.hpp>
 #include <iostream>
+#include <ctype.h>
 
 using namespace std;
 using namespace chants;
@@ -21,8 +22,11 @@ void AtNode(Node &viewPort) {
 
     // Output contents of this Node
     cout << "Location: " << viewPort.GetName() + "\n\n";
-    cout << viewPort.Description << endl
-         << "There are paths here ..." << endl;
+    if (viewPort.GetId() != 19)
+    {
+        cout << viewPort.Description << endl
+             << "There are paths here ..." << endl;
+    }
     for (Node *node : viewPort.GetConnections()) {
         cout << node->GetId() << " " << node->GetName() << endl;
     }
@@ -41,7 +45,7 @@ void AtNode(Node &viewPort) {
 }
     void fightMonster(Player* user, Monster* monster){
                     // decide if the user wants to use a health potion
-                    int healOrFight = 0;
+                    string healOrFight;
                     cout << "Current health: " << user->GetHealth() << endl;
                     cout << monster->GetName() << " health: " << monster->GetHealth() << endl;
 
@@ -49,23 +53,30 @@ void AtNode(Node &viewPort) {
                          << "[0] Attack the Monster" << endl
                          << "[1] Use a Health Potion [" << to_string(user->GetNumPotions()) << " left]" << endl;
                     cin >> healOrFight;
-                    if (healOrFight == 1) {
+                    if (healOrFight == "1")
                         if(user->GetHealth() == user->maxHealth)
                         {
-                            cout << "Health is already full." << endl;
+                            cout << "\nHealth is already full.\n" << endl;
                         }
                         else
                         {
                             user->usePotion();
-                            cout << "You drank a potion. Health restored to max." << endl;
+                            cout << "\nYou drank a potion. Health restored to max.\n" << endl;
                         }
-                    }
+                    else if (healOrFight == "0")
+                    {
                         // player attacks monster
-                        cout << "Player attacks monster"<< endl;
+                        cout << "\n-Player attacks monster"<< endl;
                         monster->takeDamage(user->playerAttack());
                         // monster attacks player
-                        cout << "Monster attacks player" << endl;
+                        cout << "\n-Monster attacks player" << endl;
                         user->takeDamage(monster->monsterAttack());
+                    }
+
+                    else
+                    {
+                        cout << "\nInvalid option selected please try again.\n\n";
+                    }
      
     }
 
@@ -124,7 +135,7 @@ int main()
     Node2.Description = "You've finally made it to the forest. The trees are \ndense, almost no sunlight makes it through the thick \nceiling. You know there will be enemies waiting \ninside, but you don't know what to expect.You see \na skeleton with a chestplate, it looks worn but \nusable, much better than what you have on now.\n";
     
     Node Node3(3, "Castle Azure");
-    Node3.Description = "You make it out of the forest and contine through \nthe path. You find yourself face to face with a tall \ncastle, it's not exactly grand. It's made out of \ngrey bricks and blue stones on the top of the buildings. \nIt has two spires with pointy tips.\nYou decide to \ngo check it out because there might be some good \nloot to prepare for the dragon.\n";
+    Node3.Description = "You make it out of the forest and continue through \nthe path. You find yourself face to face with a tall \ncastle, it's not exactly grand. It's made out of \ngrey bricks and blue stones on the top of the buildings. \nIt has two spires with pointy tips.\nYou decide to \ngo check it out because there might be some good \nloot to prepare for the dragon.\n";
     
     Node Node4(4, "Forbidden Forest");
     Node4.Description = "Further down the trail you notice a big forest, way \nlarger than the one you've gone through before. \nThere is a sign nailed to a dead tree, you examine \nthe sign and it reads... \n\"Forbidden Forest DON'T ENTER\" \nAfter reading the sign you feel a chill as you notice \na spider climbing up your hand. After promptly \nsquishing it you know this forest is going to be \ndangerous. You continue onward.\n";
@@ -309,11 +320,6 @@ int main()
     Monster kraken("kraken", 7, 100);
     Monster demon("demon", 5, 100);
     Monster griffin("griffin", 4, 100);
-    Monster ghoul("ghoul", 5, 100);
-    Monster goblin("goblin", 6, 100);
-    Monster kraken("kraken", 7, 100);
-    Monster demon("demon", 5, 100);
-    Monster griffin("griffin", 4, 100);
 
     randNode = rand() % numOfNodes;
     gameMap[randNode].AddMonster(&ghoul);
@@ -333,7 +339,7 @@ int main()
     // get ready to play game below
     int nodePointer = 0;  // start at home
     string input;
-    Player user("tempName", 100, 0);
+    Player user("Player", 100, 0);
 
     // +++++++++ game loop ++++++++++
     
@@ -394,6 +400,7 @@ int main()
                         }
                 if (currMonster->GetHealth() <= 0)
                 {
+                    cout << "\n" <<currMonster->GetName() << " has been defeated!\n";
                     gameMap[nodePointer].RemoveMonster();
                 }
                 }
@@ -417,7 +424,7 @@ int main()
             break;
 
         int nodeAddr = -1;
-        if (isNumber(input))
+        if (isNumber(input) && input.length() >= 1)
         {
             nodeAddr = stoi(input);
         }
@@ -443,9 +450,19 @@ int main()
             int index = 0;
             bool foundItem = false;
             string lastWord = getLastWord(input);
+            string upperLastWord = "";
+            for (char letter : lastWord)
+            {
+                upperLastWord += toupper(letter);
+            }
             for (Asset *asset : gameMap[nodePointer].GetAssets())
             {
-                if (asset->GetName() == lastWord)
+                string upperName = "";
+                for (char letter : asset->GetName())
+                {
+                    upperName += toupper(letter);
+                }
+                if (upperName == upperLastWord)
                 {
                     user.TakeAsset(*asset);
                     foundItem = true;

@@ -45,6 +45,7 @@ namespace chants
     /// @brief take damage for the current combatant
     /// @param damage - the amount of damage taken
     void Combatant::takeDamage(int damage){
+        cout << GetName() << " took " << to_string(damage) << " damage!\n";
         _health -= damage;
 
     }
