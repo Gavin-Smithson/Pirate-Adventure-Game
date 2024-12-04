@@ -261,7 +261,7 @@ int main()
 
     // build assets
 
-    // FIXME: Balance assets and monsters
+    // FIXME: Balance weapons, armor, and monsters
     // FIXME: remove all the commented out code
     // FIXME: do the assets need line breaks at the end?
     // FIXME: are all the true/false values correct for the assets --> need someone else to check if i have it right - Lauren
@@ -271,30 +271,34 @@ int main()
     //Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
 
     // Weapons
-    Asset RustyNail("RustyNail", "Infect an opponent with tetanus.\n", 50, true);
+    Asset WoodenPlank("WoodenPlank", "A warped and shattered wooden plank.\n", 50, true);
     Asset IronSword("IronSword", "A small, simple iron sword. The blade isn't very sharp.\n", 150, true);
-    Asset PurpleHaze("PurpleHaze", "A spell that renders opponents helpless.\n", 200, true);
+    Asset MageStaff("MageStaff", "An wooden staff with a jewel at the top. When \npointed at an enemy, purple flames pour out of the jewel.\n", 200, true);
     Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. \nRadiant blue runes can be seen along the blade.\n", 250, true);
 
     // Armor
-    Asset RustyChestPlate("RustyCheckplate", "An old dingy chestplate, there is some rust on it \nbut otherwise usable.\n", 2, false, true);
+    Asset RustyChestPlate("RustyChestPlate", "An old dingy chestplate, there is some rust on it, \nbut otherwise usable.\n", 2, false, true);
     Asset IronChestPlate("IronChestPlate", "An lightly dented and scratched iron chestplate. \nDespite the dent, it still seems usable.\n", 7, false, true);
     Asset WizardsCloak("WizardsCloak", "A black wizards cloak glows faintly. Each fiber is \nimbued with protective magic.\n", 15, false, true);
 
     //Secret Boss Reward -> Armor
-    Asset LordsArmor("LordsArmor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false, true);
+    Asset LordsArmor("LordsArmor", "An exquisite set of plate armor, adorned with gold \naccents and magical sigils.\n", 20, false, true);
 
     // Health
-    Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.", 50);
+    Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.\n", 50);
 
 
     //Predetermined asset locations
+
+    gameMap[0].AddAsset(&WoodenPlank);
+    gameMap[0].AddAsset(&HealthPotion);
+
+
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
     //gameMap[0].AddAsset(&hammer);
-    gameMap[0].AddAsset(&RustyNail);
-    gameMap[0].AddAsset(&HealthPotion);
+    
 
     
     // randomly add assets to nodes
@@ -308,16 +312,16 @@ int main()
     //gameMap[randNode].AddAsset(&hammer);
 
     randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&RustyNail);
+    gameMap[randNode].AddAsset(&WoodenPlank);
 
     randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&RustyNail);
+    gameMap[randNode].AddAsset(&WoodenPlank);  // FIXME: why is this oe repeated?
 
     randNode = rand() % numOfNodes;
     //gameMap[randNode].AddAsset(&drinkingwater);
 
+
     // build monsters
-    // randomly add monsters to nodes
     // FIXME: --> what is this and can someone explain it to me - Lauren
     Monster ghoul("ghoul", 5, 100);
     Monster goblin("goblin", 6, 100);
@@ -330,6 +334,7 @@ int main()
     Monster demon("demon", 5, 100);
     Monster griffin("griffin", 4, 100);
 
+    // randomly add monsters to nodes
     randNode = rand() % numOfNodes;
     gameMap[randNode].AddMonster(&ghoul);
 
