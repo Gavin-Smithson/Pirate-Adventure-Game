@@ -319,7 +319,7 @@ int main()
 
     gameMap[12].AddAsset(&HealthPotion);
 
-    // Code for Node 13 is 
+    // Code for Node 13 is in secret path
 
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
