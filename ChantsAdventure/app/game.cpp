@@ -43,11 +43,11 @@ void AtNode(Node &viewPort) {
                     // decide if the user wants to use a health potion
                     int healOrFight = 0;
                     cout << "Current health: " << user->GetHealth() << endl;
-                    cout << "Current monster health: " << monster->GetHealth() << endl;
+                    cout << monster->GetName() << " health: " << monster->GetHealth() << endl;
 
-                    cout << "Would you like to use a health potion?" << endl
-                         << "[0] No" << endl
-                         << "[1] Yes" << endl;
+                    cout << "What would you like to do?" << endl
+                         << "[0] Attack" << endl
+                         << "[1] Heal" << endl;
                     cin >> healOrFight;
                     if (healOrFight ==1) {
                         user->usePotion();
@@ -107,19 +107,19 @@ int main()
     vector<Node> gameMap;
 
     Node Node0(0, "Beach");
-    Node0.Description = "The beach of Seasharp Island\nIt's filled with debries and bodies. It's a wonder no one cleans this place up.\n";
+    Node0.Description = "The beach of Seasharp Island is filled with debris \nand the washed up skeletons of previous shipwrecks. \nIt strikes you as odd that no one cleans the beach up.\n";
 
     Node Node1(1, "Riverside Road");
-    Node1.Description = "You walk down a well traveled road. Almost too well traveled.\nThere is a small grove of trees that smell pure and free. The sun beams down onto your face as you walk.\nYou never got moments to yourself on the ship and you bask in the feeling of freedom you have. As you walk toward the forest.\n";
+    Node1.Description = "You walk down a well traveled road. The dusty path \nwas worn in the middle from years of use. There is \na small grove of trees to the side of the road and \nthe smell of pine fills your nose. You take time \nto bask in the peace after the chaos of the crash. \nThe sun beams down onto your face as you walk the path. \nYou never got moments to yourself on the ship and you \nenjoy in the feeling of freedom you have. As you \nwalk toward the forest.\n";
 
-    Node Node2(2, "Forest");
-    Node2.Description = "You've finally made it to the forest. The trees are dense, almost no sunlight makes it through the thick ceiling.\nYou know there will be enemies waiting inside, but you don't know what to expect.\nYou see a skeleton with a chestplate, it looks worn but usable, much better than what you have on now.\n";
+    Node Node2(2, "Forest"); // Make sure there is a skeleton at this node --> FIXME??
+    Node2.Description = "You've finally made it to the forest. The trees are \ndense, almost no sunlight makes it through the thick \nceiling. You know there will be enemies waiting \ninside, but you don't know what to expect.You see \na skeleton with a chestplate, it looks worn but \nusable, much better than what you have on now.\n";
     
     Node Node3(3, "Castle Azure");
-    Node3.Description = "You make it out of the forest and contine through the path\nYou find yourself face to face with a tall castle, it's not exactly grand. It's made out of grey bricks and blue stones on the top of the buildings. It has two spires with pointy tips.\nYou decide to go check it out because there might be some good loot to prepare for the dragon.\n";
+    Node3.Description = "You make it out of the forest and contine through \nthe path. You find yourself face to face with a tall \ncastle, it's not exactly grand. It's made out of \ngrey bricks and blue stones on the top of the buildings. \nIt has two spires with pointy tips.\nYou decide to \ngo check it out because there might be some good \nloot to prepare for the dragon.\n";
     
     Node Node4(4, "Forbidden Forest");
-    Node4.Description = "Further down the trail you notice a big forest, way larger than the one you've gone through before. There is a sign nailed to a dead tree, you examine the sign and it reads \"Forbidden Forest DON'T ENTER\"\nThe after reading that you feel a chill as you notice a spider climbing up your hand. After promptly squishing it you know this forest is going to be dangerous.\nYou continue onward.\n";
+    Node4.Description = "Further down the trail you notice a big forest, way \nlarger than the one you've gone through before. \nThere is a sign nailed to a dead tree, you examine \nthe sign and it reads... \n\"Forbidden Forest DON'T ENTER\" \nAfter reading the sign you feel a chill as you notice \na spider climbing up your hand. After promptly \nsquishing it you know this forest is going to be \ndangerous. You continue onward.\n";
     
     Node Node5(5, "Roadside Inn");
     Node5.Description = "You approach an inn on the side of the road. The \nsign above the door reads \"Traveler's Haven\". Smoke \nis coming out of the chimney and a warm glow pours from the windows.\n";
@@ -127,14 +127,14 @@ int main()
     Node Node6(6, "Road to Town");
     Node6.Description = "The road continues past the inn. A forest lines \neither side of the path and in the distance, a \nbabbling creek can be heard nearby. In the distance,\n you see a large wall emerge from the horizon.\n";
     
-    Node Node7(7, "Port Town");
-    Node7.Description = "The Port Town is bustling with travelers, fishermen, \nmerchants and the like. The crowd will be difficult to navigate through.\n";
+    Node Node7(7, "Port Town"); // What is at the port town? just lore and no fight? --> FIXME??
+    Node7.Description = "The Port Town is bustling with travelers, fishermen, \nmerchants and the like. The crowd will be difficult \nto navigate through. A merchant from a nearby stall \ncalls out to you. He has several odds and ends for sale.\n";
 
     Node Node8(8, "Broken Bridge");
-    Node8.Description = "A bridge lies before you, destroyed by battle. Though\nit once allowed passage across the Python River,\ncrossing this bridge is now impossible. Across\nthe waters, you see an orb atop a pedestal, pulsing\nwith energy. Past the orb, you can see a homestead\nin the distance, set ablaze.\n";
+    Node8.Description = "A bridge lies before you, destroyed by battle. Though \nit once allowed passage across the Python River, \ncrossing this bridge is now impossible. Across the \nwaters, you see an orb atop a pedestal, pulsing \nwith energy. Past the orb, you can see a homestead\nin the distance, set ablaze.\n";
 
     Node Node9(9, "Town Entrance");
-    Node9.Description = "A tall, stone wall surrounds the town of Seaworthy. \nThe sounds of chatter spill from over the wall. The \nentrance to town has two guards stationed outside \nthe gate. After telling them of your quest to defeat \nthe dragon that has plauged the island, they happily \nlet you in.\n.";
+    Node9.Description = "A tall, stone wall surrounds the town of Seaworthy. \nThe sounds of chatter spill from over the wall. The \nentrance to town has two guards stationed outside \nthe gate. There is a path to the right that leads to an abandoned village and a path to the left that leads towards a mountain After telling them of your quest to defeat \nthe dragon that has plauged the island, they happily \nlet you in.\n.";
 
     Node Node10(10, "Town Square");
     Node10.Description = "The Town Square is packed with market stalls selling \nvarious goods and wares. The buildings surrounding \nthe Town Square house various shops with items for \nsale. It might be worth it to check them out.\n";
@@ -143,28 +143,28 @@ int main()
     Node10.Description = "The sound of the Blacksmith's hammer echos into the \nstreets. The forge has a large fire pit in the center \nwith white hot metal inside a crucible. The heat \nfrom the fire makes you sweat. Gold sat heavy in \nyour pocket, years of piracy meant your pockets \nwere never light.\n";
 
     Node Node12(12, "General Store");
-    Node10.Description = "The bell above the general store rand as you walked in. The shop keeper greets you as you walked in Gold sat heavy in \nyour pocket, years of piracy meant your pockets \nwere never light.\n";
+    Node10.Description = "The bell above the general store rang as you walked \nin. The shop keeper greets you as you walked in. \nGold sat heavy in your pocket. Years of piracy \nmeant your pockets were never light.\n";
     
     Node Node13(13, "Decrepit Mansion");
-    Node13.Description = "You step inside the old mansion. You are greeted by\ncobwebs and disarray. To your left, you see a red\nflag draped across the wall. To your right, you\nsee empty bottles and alchemical instruments. Ahead,\nyou see an orb atop a pedestal, pulsing with magical\nenergy. It gives power to a large teleportation sigil.\nA call for help from somewhere far away.\n";
+    Node13.Description = "You step inside the old mansion. You are greeted by \ncobwebs and disarray. To your left, you see a red \nflag draped across the wall. To your right, you see \nempty bottles and alchemical instruments. Ahead, \nyou see an orb atop a pedestal, pulsing with magical \nenergy. It gives power to a large teleportation sigil.\nA call for help from somewhere far away.\n";
 
     Node Node14(14, "Mountain Pass");
-    Node14.Description = "Steep, jagged rocks make up the face of a white capped mountain";
+    Node14.Description = "Steep, jagged rocks make up the face of a white \ncapped mountain. The landmark blocks your view of \nthe path in front of you. A dark cave sits at the \nbase of the mountain. In the distance the spires \nof a blue clastle can be seen. A small glimmer inside \nthe cave cuts through the darkness and catches your eye.\n";
 
     Node Node15(15, "Abandoned Village");
-    Node15.Description = "";
+    Node15.Description = "Taking the path to the right of the town leads you \nto an abandoned village. The only noises that can \nbe heard is the wind whistling between the buildings \nand forgotten windchimes coated with a layer of rust. \nA faint shuffling sound can be heard coming from one \nof the buildings.\n";
 
     Node Node16(16, "Crimson Castle");
-    Node16.Description = "You arrive at a castle, draped in red flags. Walking\nthrough the open gates, you find the armored corpses\nof knights, torn asunder by some terrible beast.\nThe southern wall was forced open by what appears\nto be simply roots and vines.\n";
+    Node16.Description = "You arrive at a castle, draped in red flags. Walking \nthrough the open gates, you find the armored corpses \nof knights, torn asunder by some terrible beast. \nThe southern wall was forced open by what appears \nto be simply roots and vines.\n";
     
     Node Node17(17, "Teleportation Sigil");
-    Node17.Description = "You arrive in a field of crops and bones. Wheat and\ncorn surround you, crushed and ripped apart by a\npowerful beast. A broken bridge can be seen in one\ndirection. In the other, a distant homestead on fire. Next\nto you sits an orb atop a pedestal. Beneath your feet,\nyou see a familiar sigil, its magical energy now\nextinguished. A strange feeling overcomes you...\n";
+    Node17.Description = "You arrive in a field of crops and bones. Wheat and \ncorn surround you, crushed and ripped apart by a \npowerful beast. A broken bridge can be seen in one \ndirection. In the other, a distant homestead on fire. \nNext to you sits an orb atop a pedestal. Beneath your feet,\nyou see a familiar sigil, its magical energy now\nextinguished. A strange feeling overcomes you...\n";
 
     Node Node18(18, "Destroyed Homestead");
     Node18.Description = "Past the crops, you find yourself amidst the flaming ruins of\na homestead. Once the food supplier of a nearby kingdom,\nthe buildings surrounding you now lie crumbled, toppled\nby a terror perhaps even greater than FIXME-DRAGONNAME.\nDozens of armored corpses can be seen spread about\nthe destruction. Adorning their armor, you see\na red insignia.\n";
 
     Node Node19(19, "Dragon's Castle");
-    Node19.Description = "";
+    Node19.Description = "A great shadow swallows the sunlight on the ground \n in front of you. A deafening roar shakes you to \nthe core. The dragon is here. The time has come \nto face the beast that has been plaguing the island. \nThe shadow was heading towards a massive castle with \ndozens of blue spires. It almost looked like flames.\n";
 
     // connect nodes paths
 
@@ -255,14 +255,25 @@ int main()
     Asset flashlight("Flashlight", "A flashlight can be very useful, especially in dark places.", 50, false);
     Asset hammer("Hammer", "A hammer to help defend yourself", 150, true);
     Asset purplehaze("Purple haze", "A spell that renders opponents helpless.", 250, true);
-    Asset rustynail("Rusty nail", "Infect an opponent with tetanus.", 100, true);
+    Asset rustynail("RustyNail", "Infect an opponent with tetanus.", 100, true);
     Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
-    Asset RustyChestplate("Rusty Checkplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false );
+    Asset RustyChestplate("RustyCheckplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false, true);
+    Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.", 50);
+    Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. Radiant blue runes can be seen along the blade.", 15, true);
 
     
     //Secret Boss Reward
-    Asset LordsArmor("Lord's Armor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false);
+    Asset LordsArmor("LordsArmor", "An exquisite set of plate armor, adorned with gold accents and magical sigils.", 20, false, true);
+    
 
+    //Predetermined asset locations
+    gameMap[17].AddAsset(&OldSorcerersSword);
+    gameMap[17].AddAsset(&HealthPotion);
+
+    gameMap[0].AddAsset(&hammer);
+    gameMap[0].AddAsset(&rustynail);
+
+    
     // randomly add assets to nodes
     int numOfNodes = gameMap.size();
 
@@ -284,11 +295,11 @@ int main()
 
     // build monsters
     // randomly add monsters to nodes
-    Monster ghoul("ghoul", 5000, 100);
-    Monster goblin("goblin", 6000, 100);
-    Monster kraken("kraken", 7000, 100);
-    Monster demon("demon", 5000, 100);
-    Monster griffin("griffin", 4000, 100);
+    Monster ghoul("ghoul", 5, 100);
+    Monster goblin("goblin", 6, 100);
+    Monster kraken("kraken", 7, 100);
+    Monster demon("demon", 5, 100);
+    Monster griffin("griffin", 4, 100);
 
     randNode = rand() % numOfNodes;
     gameMap[randNode].AddMonster(&ghoul);
@@ -346,6 +357,31 @@ int main()
         // show current node info
         AtNode(gameMap[nodePointer]);
 
+        // code for how a player and monster would fight
+        // if the current node has a monster
+        if (gameMap[nodePointer].hasMonster()) {
+            // copy the list of pointers to monsters in the room
+            vector<Monster *> currMonsters = gameMap[nodePointer].GetMonsters();
+
+            // iterate through all the monsters in the room and fight them
+            int i = 0;
+            while (i < currMonsters.size()) {
+                // current monster in the list of monsters
+                Monster *currMonster = currMonsters[i];
+
+                // keep attacking the monster till their health is 0
+                while (currMonster->GetHealth() > 0) {
+                    fightMonster(&user, currMonster);
+                    if (user.GetHealth() <= 0) {
+                        cout << "You died!" << endl
+                                << "current room: " << nodePointer << endl;
+                            return 0;
+                        }   
+                }
+                    // fight next monster
+                    i++;
+            }
+        }
         cout << "Go to node? e(x)it: ";
         getline(cin, input);
 
@@ -377,7 +413,24 @@ int main()
         // if player wants to take an asset (t hammer)
         if (input.length() > 1 && input[0] == 't')
         {
+            int index = 0;
+            bool foundItem = false;
             string lastWord = getLastWord(input);
+            for (Asset *asset : gameMap[nodePointer].GetAssets())
+            {
+                if (asset->GetName() == lastWord)
+                {
+                    user.EquipAsset(*asset);
+                    foundItem = true;
+                    break;
+                }
+            index++;
+            }
+
+            if (foundItem)
+            {
+                gameMap[nodePointer].RemoveAsset(index);
+            }
         }
 
         // if player wants to attack a monster (a kraken)
