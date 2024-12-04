@@ -264,7 +264,6 @@ int main()
     // FIXME: Balance weapons, armor, and monsters
     // FIXME: remove all the commented out code
     // FIXME: do the assets need line breaks at the end?
-    // FIXME: are all the true/false values correct for the assets --> need someone else to check if i have it right - Lauren
 
     // Weapons
     Asset WoodenPlank("WoodenPlank", "A warped and shattered wooden plank.\n", 50, true);
@@ -284,35 +283,25 @@ int main()
     Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.\n", 50);
 
 
-    //Predetermined asset locations
+    //Predetermined Asset Locations
 
     gameMap[0].AddAsset(&WoodenPlank);
     gameMap[0].AddAsset(&HealthPotion);
 
+    // Node 1 doesn't have assets
+
+    gameMap[2].AddAsset(&RustyChestPlate);
+    gameMap[2].AddAsset(&HealthPotion);
+
+    gameMap[3].AddAsset(&IronSword);
+    gameMap[3].AddAsset(&WizardsCloak);
+    gameMap[3].AddAsset(&HealthPotion);
+    
+    gameMap[4].AddAsset(&WoodenPlank);
+    gameMap[4].AddAsset(&HealthPotion);
 
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
-
-
-    
-    // randomly add assets to nodes
-    int numOfNodes = gameMap.size();
-
-    srand(time(nullptr));  // seed the random number generator
-    int randNode = rand() % numOfNodes;
-    //gameMap[randNode].AddAsset(&flashlight);
-
-    randNode = rand() % numOfNodes;
-    //gameMap[randNode].AddAsset(&hammer);
-
-    randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&WoodenPlank);
-
-    randNode = rand() % numOfNodes;
-    gameMap[randNode].AddAsset(&WoodenPlank);  // FIXME: why is this oe repeated?
-
-    randNode = rand() % numOfNodes;
-    //gameMap[randNode].AddAsset(&drinkingwater);
 
 
     // build monsters
@@ -321,6 +310,9 @@ int main()
     Monster kraken("kraken", 7, 100);
     Monster demon("demon", 5, 100);
     Monster griffin("griffin", 4, 100);
+
+    //Predetermined Monster Locations
+
 
     // randomly add monsters to nodes
     randNode = rand() % numOfNodes;
