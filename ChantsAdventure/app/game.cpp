@@ -261,18 +261,23 @@ int main()
 
     // build assets
 
+    // FIXME: Balance assets and monsters
+    // FIXME: remove all the commented out code
+    // FIXME: do the assets need line breaks at the end?
+
     //Asset flashlight("Flashlight", "A flashlight can be very useful, especially in dark places.", 50, false);
     //Asset hammer("Hammer", "A hammer to help defend yourself", 150, true);
     //Asset drinkingwater("Drinking water", "This may keep you from going thirsty.", 50, false);
 
     // Weapons
-    Asset IronSword("IronSword", "A small, simple iron sword. The blade isn't very sharp.", 15, true);
-    Asset PurpleHaze("PurpleHaze", "A spell that renders opponents helpless.", 250, true);
-    Asset RustyNail("RustyNail", "Infect an opponent with tetanus.", 100, true);
-    Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. Radiant blue runes can be seen along the blade.", 15, true);
+    Asset RustyNail("RustyNail", "Infect an opponent with tetanus.", 50, true);
+    Asset IronSword("IronSword", "A small, simple iron sword. The blade isn't very sharp.", 150, true);
+    Asset PurpleHaze("PurpleHaze", "A spell that renders opponents helpless.", 200, true);
+    Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. Radiant blue runes can be seen along the blade.", 250, true);
 
     // Armor
-    Asset RustyChestPlate("RustyCheckplate", "An old dingy chestplate, there is some rust on it but otherwise usable,", 2, false, true);
+    Asset RustyChestPlate("RustyCheckplate", "An old dingy chestplate, there is some rust on it but otherwise usable.", 2, false, true);
+    Asset IronChestPlate("IronChestPlate", "An lightly dented and scratched iron chestplate. \nDespite the dent, it still seems usable.\n", 15, false, true);
 
     // Health
     Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.", 50);
