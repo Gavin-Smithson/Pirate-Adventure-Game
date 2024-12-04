@@ -142,7 +142,7 @@ int main()
     Node8.Description = "A bridge lies before you, destroyed by battle. Though \nit once allowed passage across the Python River, \ncrossing this bridge is now impossible. Across the \nwaters, you see an orb atop a pedestal, pulsing \nwith energy. Past the orb, you can see a homestead\nin the distance, set ablaze.\n";
 
     Node Node9(9, "Town Entrance");
-    Node9.Description = "A tall, stone wall surrounds the town of Seaworthy. \nThe sounds of chatter spill from over the wall. The \nentrance to town has two guards stationed outside \nthe gate. There is a path to the right that leads to an abandoned village and a path to the left that leads towards a mountain After telling them of your quest to defeat \nthe dragon that has plauged the island, they happily \nlet you in.\n.";
+    Node9.Description = "A tall, stone wall surrounds the town of Seaworthy. \nThe sounds of chatter spill from over the wall. The \nentrance to town has two guards stationed outside \nthe gate. There is a path to the right that leads \nto an abandoned village and a path to the left that\n leads towards a mountain After telling them of your quest to defeat \nthe dragon that has plauged the island, they happily \nlet you in.\n.";
 
     Node Node10(10, "Town Square");
     Node10.Description = "The Town Square is packed with market stalls selling \nvarious goods and wares. The buildings surrounding \nthe Town Square house various shops with items for \nsale. It might be worth it to check them out.\n";
@@ -297,38 +297,39 @@ int main()
     gameMap[3].AddAsset(&WizardsCloak);
     gameMap[3].AddAsset(&HealthPotion);
     
-    gameMap[4].AddAsset(&WoodenPlank);
-    gameMap[4].AddAsset(&HealthPotion);
+    // Node 4 doesn't have assets
+
+    gameMap[5].AddAsset(&RustyChestPlate);
+    gameMap[5].AddAsset(&HealthPotion);
+
+    // Node 6 doesn't have assets
+
+    gameMap[7].AddAsset(&IronSword);
+    gameMap[7].AddAsset(&HealthPotion);
+
+    // Node 8 doesn't have assets
+
+    // Node 9 doesn't have assets
+
+    // Node 10 doesn't have assets
+
+    gameMap[11].AddAsset(&IronSword);
+    gameMap[11].AddAsset(&IronChestPlate);
 
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
 
     // build monsters
-    Monster ghoul("ghoul", 5, 100);
-    Monster goblin("goblin", 6, 100);
-    Monster kraken("kraken", 7, 100);
-    Monster demon("demon", 5, 100);
-    Monster griffin("griffin", 4, 100);
+    Monster ghoul("Ghoul", 5, 100);
+    Monster goblin("Goblin", 6, 100);
+    Monster kraken("Kraken", 7, 100);
+    Monster demon("Demon", 5, 100);
+    Monster griffin("Griffin", 4, 100);
+    Monster skeleton("Skeleton", 4, 100);
 
     //Predetermined Monster Locations
 
-
-    // randomly add monsters to nodes
-    randNode = rand() % numOfNodes;
-    gameMap[randNode].AddMonster(&ghoul);
-
-    randNode = rand() % numOfNodes;
-    gameMap[randNode].AddMonster(&goblin);
-
-    randNode = rand() % numOfNodes;
-    gameMap[randNode].AddMonster(&kraken);
-
-    randNode = rand() % numOfNodes;
-    gameMap[randNode].AddMonster(&demon);
-
-    randNode = rand() % numOfNodes;
-    gameMap[randNode].AddMonster(&griffin);
 
     // get ready to play game below
     int nodePointer = 0;  // start at home
