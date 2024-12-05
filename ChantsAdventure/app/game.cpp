@@ -278,7 +278,6 @@ int main()
 
     // FIXME: Balance weapons, armor, and monsters
     // FIXME: remove all the commented out code
-    // FIXME: do the assets need line breaks at the end?
 
     // Weapons
     Asset WoodenPlank("Wooden Plank", "It is warped and shattered at the ends.", 50, true);
@@ -329,7 +328,9 @@ int main()
     gameMap[11].AddAsset(&IronSword);
     gameMap[11].AddAsset(&IronChestPlate);
 
+    gameMap[12].AddAsset(&HealthPotion);
 
+    // Code for Node 13 is in secret path
 
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
