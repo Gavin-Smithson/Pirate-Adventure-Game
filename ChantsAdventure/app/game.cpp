@@ -344,14 +344,11 @@ int main()
 
     gameMap[15].AddAsset(&IronChestPlate);
 
-    gameMap[16].AddAsset(&IronSword);
     gameMap[16].AddAsset(&HealthPotion);
 
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
-    gameMap[18].AddAsset(&OldLordsArmor);
-    gameMap[18].AddAsset(&HealthPotion);
 
     // Node 19 doesnt have assets
 
@@ -399,19 +396,18 @@ int main()
 
     // Node 12 has no monsters -> general store
 
-    //gameMap[13].AddMonster(&Wraith); ---> FIXME: move to secret path or scrap
+    gameMap[13].AddMonster(&Wraith);
 
     gameMap[14].AddMonster(&MountainTroll);
 
     gameMap[15].AddMonster(&Skeleton_2);
     gameMap[15].AddMonster(&Wraith);
 
-    // gameMap[16].AddMonster(&Skeleton_1);
-    // gameMap[16].AddMonster(&Skeleton_2);
-    
-    gameMap[17].AddMonster(&Planterror);
+    gameMap[16].AddMonster(&Skeleton_1);
 
-    //gameMap[18].AddMonster(&BuffBandit); ---> FIXME: move to secret path or scrap
+    gameMap[17].AddMonster(&WarriorsGhost);
+    
+    gameMap[18].AddMonster(&Planterror);
 
     gameMap[19].AddMonster(&Dragon);
 
@@ -498,6 +494,7 @@ int main()
             //Node16 is changed to reflect the defeat of the secret boss
             gameMap[16].Description = "You arrive at a castle draped in red flags. Walking\nthrough the open gate, you are greeted with cheers\nand applause. The beast you slew defeated their very\nbest knights and would have felled this castle. You\nare presented with their finest armor, a gift from\nthe castle's lord.\n";
             gameMap[16].AddAsset(&OldLordsArmor);
+            gameMap[16].RemoveMonster();
 
             //Removing the connection to Node17
             gameMap[13].RemoveFirstConnection();
@@ -515,6 +512,11 @@ int main()
 
         // show current node info
         AtNode(gameMap[nodePointer]);
+
+         if (gameMap[nodePointer] == Node20)
+        {
+            return 0;
+        }
 
         // code for how a player and monster would fight
         // if the current node has a monster
