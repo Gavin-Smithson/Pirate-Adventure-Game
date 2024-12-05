@@ -324,12 +324,18 @@ int main()
 
     gameMap[14].AddAsset(&HealthPotion);
 
-    gameMap[15].AddAsset(&HealthPotion);
+    gameMap[15].AddAsset(&IronChestPlate);
 
+    gameMap[16].AddAsset(&IronSword);
     gameMap[16].AddAsset(&HealthPotion);
 
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
+
+    gameMap[18].AddAsset(&WizardsCloak);
+    gameMap[18].AddAsset(&HealthPotion);
+
+    gameMap[19].AddAsset(&HealthPotion);
 
 
     // build monsters
@@ -342,7 +348,7 @@ int main()
     Monster Dragon("Esqueuel the Dragon", 400, 50);
 
     //Predetermined Monster Locations
-
+    
 
     // get ready to play game below
     int nodePointer = 0;  // start at home
