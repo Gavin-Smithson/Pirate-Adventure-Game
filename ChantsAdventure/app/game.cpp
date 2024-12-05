@@ -280,21 +280,21 @@ int main()
     // FIXME: remove all the commented out code
 
     // Weapons
-    Asset WoodenPlank("Wooden Plank", "It is warped and shattered at the ends.", 50, true);
-    Asset IronSword("Iron Sword", "Its a small blade and isn't very sharp.", 150, true);
-    Asset MageStaff("Mage Staff", "An wooden staff with a jewel at the top. When \npointed at an enemy, purple flames pour out of the jewel.", 200, true);
-    Asset OldSorcerersSword("Old Sorcerers Sword", "A longsword infused with old, powerful magic. \nRadiant blue runes can be seen along the blade.", 250, true);
+    Asset WoodenPlank("WoodenPlank", "It is warped and shattered at the ends.", 50, true);
+    Asset IronSword("IronSword", "Its a small blade and isn't very sharp.", 150, true);
+    Asset MageStaff("MageStaff", "An wooden staff with a jewel at the top. When \npointed at an enemy, purple flames pour out of the jewel.", 200, true);
+    Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. \nRadiant blue runes can be seen along the blade.", 250, true);
 
     // Armor
-    Asset RustyChestPlate("Rusty Chest Plate", "It is old and dingy. There is some rust on it, but otherwise usable.", 2, false, true);
-    Asset IronChestPlate("Iron Chest Plate", "You can see your reflection in the polished surface..", 7, false, true);
-    Asset WizardsCloak("Wizards Cloak", "The cloak glows faintly. Each fiber is imbued with protective magic.", 15, false, true);
+    Asset RustyChestPlate("RustyChestPlate", "It is old and dingy. There is some rust on it, but otherwise usable.", 2, false, true);
+    Asset IronChestPlate("IronChestPlate", "You can see your reflection in the polished surface..", 7, false, true);
+    Asset WizardsCloak("WizardsCloak", "The cloak glows faintly. Each fiber is imbued with protective magic.", 15, false, true);
 
     //Secret Boss Reward -> Armor
-    Asset OldLordsArmor("Old Lord's Armor", "An exquisite set of plate armor, adorned with gold \naccents and magical sigils.", 20, false, true);
+    Asset OldLordsArmor("OldLordsArmor", "An exquisite set of plate armor, adorned with gold \naccents and magical sigils.", 20, false, true);
 
     // Health
-    Asset HealthPotion("Health Potion", "A magical concoction that seals your wounds and restore your stamina.", 50);
+    Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.", 50);
 
 
     //Predetermined Asset Locations
