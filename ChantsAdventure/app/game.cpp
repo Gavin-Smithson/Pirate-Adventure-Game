@@ -326,20 +326,20 @@ int main()
 
     gameMap[15].AddAsset(&HealthPotion);
 
-    
+    gameMap[16].AddAsset(&HealthPotion);
 
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
 
     // build monsters
-    Monster MountainTroll("Mountain Troll", 5, 100);
-    Monster Wraith("Wraith", 6, 100);
-    Monster WarriorsGhost("Warrior's Ghost", 7, 100);
-    Monster BuffBandit("Buff Bandit", 5, 100);
-    Monster SassySquirrel("Sassy Squirrel", 4, 100);
-    Monster Skeleton("Skeleton", 4, 100);
-    Monster Dragon("Esqueuel the Dragon", 4, 100);
+    Monster MountainTroll("Mountain Troll", 200, 30);
+    Monster Wraith("Wraith", 200, 40);
+    Monster WarriorsGhost("Warrior's Ghost", 150, 20);
+    Monster BuffBandit("\"Buff\" Bandit", 10, 5); // The "Buff" Bandit is meant to be weak
+    Monster SassySquirrel("Sassy Squirrel", 30, 100);
+    Monster Skeleton("Skeleton", 50, 30);
+    Monster Dragon("Esqueuel the Dragon", 400, 50);
 
     //Predetermined Monster Locations
 
