@@ -20,6 +20,8 @@ Gavin time log
 11/26 - Story and game design drafting (1 Hour)
 12/1 - Git merges and management. Worked on asset changes (2 hours)
 12/2 - Collaborated with macros for equipment and asset final changes (2 hours)
+12/4 Helped finalize readme.md, source control, merging all branches, debugging, and compiling (3 hours)
+12/5 - Helped present (1 hour)
 
 Marcos Time Log
 11/15 - Discussed plans for the game (1 hour)
