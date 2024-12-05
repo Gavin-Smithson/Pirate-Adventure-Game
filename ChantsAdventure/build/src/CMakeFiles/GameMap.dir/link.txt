@@ -1,2 +1,0 @@
-/usr/bin/ar qc libGameMap.a CMakeFiles/GameMap.dir/Node.cpp.o CMakeFiles/GameMap.dir/Asset.cpp.o CMakeFiles/GameMap.dir/Combatant.cpp.o CMakeFiles/GameMap.dir/Player.cpp.o CMakeFiles/GameMap.dir/Monster.cpp.o CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o
-/usr/bin/ranlib libGameMap.a
