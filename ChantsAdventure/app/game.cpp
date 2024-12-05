@@ -425,17 +425,27 @@ int main()
 
     string startInput = "";
 
+    cout << "\033[36m\u250F-------------------------------------------------------\u2513" << endl;
+    cout << "\u2503                   \033[1;37mCHANTS ADVENTURE\033[0m\033[36m                    \u2503" << endl;
+    cout << "\u2517-------------------------------------------------------\u251B\033[0m" << endl;
+    cout << "\n1) PLAY" << endl;
+    cout << "2) GAME RULES" << endl;
+    cout << "3) LORE" << endl;
+    cout << "Enter your choice: ";
+
+    cin >> startInput;
+    
+    
+    
     while (true)
     {
+        cout << "\033[2J\033[1;1H";
         cout << "\033[36m\u250F-------------------------------------------------------\u2513" << endl;
         cout << "\u2503                   \033[1;37mCHANTS ADVENTURE\033[0m\033[36m                    \u2503" << endl;
         cout << "\u2517-------------------------------------------------------\u251B\033[0m" << endl;
         cout << "\n1) PLAY" << endl;
         cout << "2) GAME RULES" << endl;
         cout << "3) LORE" << endl;
-        cout << "Enter your choice: ";
-
-        cin >> startInput;
 
         if (startInput == "1")
         {
@@ -443,23 +453,25 @@ int main()
         }
         else if (startInput == "2")
         {
-            cout << "\033[2J\033[1;1H";
-            cout << "\nTo play, type in the number of the path you wish to take.\nTo pick up an item, type in t ITEMNAME (not case sensitive).\n" << endl;
-            continue;
+            
+            cout << "\nTo play, type in the number of the path you wish to take.\nTo pick up an item, type in t ITEMNAME.\n(\'t\' must be lowercase, ITEMNAME not case sensitive)\n" << endl;
+            
         }
         else if (startInput == "3")
         {
-            cout << "\033[2J\033[1;1H";
+
             cout << "\nYou are an pirate who sails around the globe looking\nfor glory. That glory comes with ego and you are\nfull of it. You sail toward Seasharp island known\nfor, well, it's name! The island is sharp and deadly\na dragon attacks your ship and killed your\nwife and wipes your ship into a sharp rock.\nSinking you and leaving you stranded.\n" << endl;
-            continue;
+            
         }
 
         else
         {
-            cout << "\033[2J\033[1;1H";
             cout << "\nInvalid input. Please try again." << endl;
-            continue;
         }        
+
+        cout << "Enter your choice: ";
+
+        cin >> startInput;
 
     }
 
