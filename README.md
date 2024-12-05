@@ -1,4 +1,4 @@
-# Chants Adventure Game
+# Pirate Adventure Game
 The Chants Adventure Game is the final project for CSCI-207. This game is a fantasy game that is played within the console. It has a basic story and lets you play as a pirate going through to kill a dragon to take revenge for sinking his ship.
 
 ## Authors

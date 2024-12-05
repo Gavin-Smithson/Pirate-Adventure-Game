@@ -1,0 +1,35 @@
+Lauren Time Log:
+11/15 - Discussed plans for the game (1 hour)
+11/21 - Talked over game Design (2 hours)
+11/26 - Game Design (3 hours)
+11/3 - Made Assets and placed them in nodes (3 hours)
+12/4 - Formatting and Balancing, Also created and placed Monsters (8 hours)
+12/5 - Final Touches and Present (4 hours)
+
+Or time log
+11/15 - Discussed plans for the game (1 hour)
+11/21 - Talked over game Design (2 hours)
+11/26 - Story and game design drafting (1 Hour)
+11/29 - Rewrote attacking in combatant.cpp, Added dice rolling, Added game.cpp fighting loop (2 hours)
+12/4 - Added Gtests for asset class (1 hour)
+12/5 - final touches and presenting (1 hour)
+
+Gavin time log 
+11/15 - Discussed plans for the game (1 hour)
+11/21 - Talked over game Design (2 hours)
+11/26 - Story and game design drafting (1 Hour)
+12/1 - Git merges and management. Worked on asset changes (2 hours)
+12/2 - Collaborated with macros for equipment and asset final changes (2 hours)
+12/4 Helped finalize readme.md, source control, merging all branches, debugging, and compiling (3 hours)
+12/5 - Helped present (1 hour)
+
+Marcos Time Log
+11/15 - Discussed plans for the game (1 hour)
+11/21 - Talked over game Design (2 hours)
+11/22 - Asset changes and Equipment (1 hour)
+11/26 - Story and game design drafting (1 Hour)
+11/29 - Map redesign, connected all Nodes ( 1 hour)
+11/30 - Secret Path Nodes Completed [Nodes 8, 13, 16, 17, 18] (1 hour)
+12/2 - Equipment and asset final changes. Implemented new functions into main game loop (3 hours)
+12/3 - Fight code changes. Bug fixes (3 hours)
+12/4 - UML Diagram, Main game code (2 hours)
