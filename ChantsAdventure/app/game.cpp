@@ -349,6 +349,9 @@ int main()
 
     //Predetermined Monster Locations
     
+    gameMap[0].AddMonster(&BuffBandit);
+
+    gameMap[4].AddMonster(&Skeleton);
 
     // get ready to play game below
     int nodePointer = 0;  // start at home
