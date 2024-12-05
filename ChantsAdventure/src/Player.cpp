@@ -110,6 +110,7 @@ namespace chants
      */
     int Player::playerAttack(){
         int diceRoll = rollDice();
+        cout << _name << " rolled a " << diceRoll << "!"<< endl;
         return diceRoll + GetAttack() + _fightCoefficient;
     }
 
