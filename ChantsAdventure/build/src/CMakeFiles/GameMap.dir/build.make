@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure
+CMAKE_SOURCE_DIR = /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build
+CMAKE_BINARY_DIR = /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/GameMap.dir/depend.make
@@ -72,86 +72,86 @@ include src/CMakeFiles/GameMap.dir/flags.make
 src/CMakeFiles/GameMap.dir/Node.cpp.o: src/CMakeFiles/GameMap.dir/flags.make
 src/CMakeFiles/GameMap.dir/Node.cpp.o: ../src/Node.cpp
 src/CMakeFiles/GameMap.dir/Node.cpp.o: src/CMakeFiles/GameMap.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/GameMap.dir/Node.cpp.o"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Node.cpp.o -MF CMakeFiles/GameMap.dir/Node.cpp.o.d -o CMakeFiles/GameMap.dir/Node.cpp.o -c /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/GameMap.dir/Node.cpp.o"
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Node.cpp.o -MF CMakeFiles/GameMap.dir/Node.cpp.o.d -o CMakeFiles/GameMap.dir/Node.cpp.o -c /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Node.cpp
 
 src/CMakeFiles/GameMap.dir/Node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameMap.dir/Node.cpp.i"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Node.cpp > CMakeFiles/GameMap.dir/Node.cpp.i
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Node.cpp > CMakeFiles/GameMap.dir/Node.cpp.i
 
 src/CMakeFiles/GameMap.dir/Node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameMap.dir/Node.cpp.s"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Node.cpp -o CMakeFiles/GameMap.dir/Node.cpp.s
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Node.cpp -o CMakeFiles/GameMap.dir/Node.cpp.s
 
 src/CMakeFiles/GameMap.dir/Asset.cpp.o: src/CMakeFiles/GameMap.dir/flags.make
 src/CMakeFiles/GameMap.dir/Asset.cpp.o: ../src/Asset.cpp
 src/CMakeFiles/GameMap.dir/Asset.cpp.o: src/CMakeFiles/GameMap.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/GameMap.dir/Asset.cpp.o"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Asset.cpp.o -MF CMakeFiles/GameMap.dir/Asset.cpp.o.d -o CMakeFiles/GameMap.dir/Asset.cpp.o -c /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Asset.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/GameMap.dir/Asset.cpp.o"
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Asset.cpp.o -MF CMakeFiles/GameMap.dir/Asset.cpp.o.d -o CMakeFiles/GameMap.dir/Asset.cpp.o -c /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Asset.cpp
 
 src/CMakeFiles/GameMap.dir/Asset.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameMap.dir/Asset.cpp.i"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Asset.cpp > CMakeFiles/GameMap.dir/Asset.cpp.i
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Asset.cpp > CMakeFiles/GameMap.dir/Asset.cpp.i
 
 src/CMakeFiles/GameMap.dir/Asset.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameMap.dir/Asset.cpp.s"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Asset.cpp -o CMakeFiles/GameMap.dir/Asset.cpp.s
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Asset.cpp -o CMakeFiles/GameMap.dir/Asset.cpp.s
 
 src/CMakeFiles/GameMap.dir/Combatant.cpp.o: src/CMakeFiles/GameMap.dir/flags.make
 src/CMakeFiles/GameMap.dir/Combatant.cpp.o: ../src/Combatant.cpp
 src/CMakeFiles/GameMap.dir/Combatant.cpp.o: src/CMakeFiles/GameMap.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/GameMap.dir/Combatant.cpp.o"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Combatant.cpp.o -MF CMakeFiles/GameMap.dir/Combatant.cpp.o.d -o CMakeFiles/GameMap.dir/Combatant.cpp.o -c /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Combatant.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/GameMap.dir/Combatant.cpp.o"
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Combatant.cpp.o -MF CMakeFiles/GameMap.dir/Combatant.cpp.o.d -o CMakeFiles/GameMap.dir/Combatant.cpp.o -c /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Combatant.cpp
 
 src/CMakeFiles/GameMap.dir/Combatant.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameMap.dir/Combatant.cpp.i"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Combatant.cpp > CMakeFiles/GameMap.dir/Combatant.cpp.i
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Combatant.cpp > CMakeFiles/GameMap.dir/Combatant.cpp.i
 
 src/CMakeFiles/GameMap.dir/Combatant.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameMap.dir/Combatant.cpp.s"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Combatant.cpp -o CMakeFiles/GameMap.dir/Combatant.cpp.s
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Combatant.cpp -o CMakeFiles/GameMap.dir/Combatant.cpp.s
 
 src/CMakeFiles/GameMap.dir/Player.cpp.o: src/CMakeFiles/GameMap.dir/flags.make
 src/CMakeFiles/GameMap.dir/Player.cpp.o: ../src/Player.cpp
 src/CMakeFiles/GameMap.dir/Player.cpp.o: src/CMakeFiles/GameMap.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/GameMap.dir/Player.cpp.o"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Player.cpp.o -MF CMakeFiles/GameMap.dir/Player.cpp.o.d -o CMakeFiles/GameMap.dir/Player.cpp.o -c /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Player.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/GameMap.dir/Player.cpp.o"
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Player.cpp.o -MF CMakeFiles/GameMap.dir/Player.cpp.o.d -o CMakeFiles/GameMap.dir/Player.cpp.o -c /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Player.cpp
 
 src/CMakeFiles/GameMap.dir/Player.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameMap.dir/Player.cpp.i"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Player.cpp > CMakeFiles/GameMap.dir/Player.cpp.i
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Player.cpp > CMakeFiles/GameMap.dir/Player.cpp.i
 
 src/CMakeFiles/GameMap.dir/Player.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameMap.dir/Player.cpp.s"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Player.cpp -o CMakeFiles/GameMap.dir/Player.cpp.s
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Player.cpp -o CMakeFiles/GameMap.dir/Player.cpp.s
 
 src/CMakeFiles/GameMap.dir/Monster.cpp.o: src/CMakeFiles/GameMap.dir/flags.make
 src/CMakeFiles/GameMap.dir/Monster.cpp.o: ../src/Monster.cpp
 src/CMakeFiles/GameMap.dir/Monster.cpp.o: src/CMakeFiles/GameMap.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/GameMap.dir/Monster.cpp.o"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Monster.cpp.o -MF CMakeFiles/GameMap.dir/Monster.cpp.o.d -o CMakeFiles/GameMap.dir/Monster.cpp.o -c /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Monster.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/GameMap.dir/Monster.cpp.o"
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/Monster.cpp.o -MF CMakeFiles/GameMap.dir/Monster.cpp.o.d -o CMakeFiles/GameMap.dir/Monster.cpp.o -c /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Monster.cpp
 
 src/CMakeFiles/GameMap.dir/Monster.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameMap.dir/Monster.cpp.i"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Monster.cpp > CMakeFiles/GameMap.dir/Monster.cpp.i
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Monster.cpp > CMakeFiles/GameMap.dir/Monster.cpp.i
 
 src/CMakeFiles/GameMap.dir/Monster.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameMap.dir/Monster.cpp.s"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/Monster.cpp -o CMakeFiles/GameMap.dir/Monster.cpp.s
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/Monster.cpp -o CMakeFiles/GameMap.dir/Monster.cpp.s
 
 src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o: src/CMakeFiles/GameMap.dir/flags.make
 src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o: ../src/AdventureGameMap.cpp
 src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o: src/CMakeFiles/GameMap.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o -MF CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o.d -o CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o -c /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/AdventureGameMap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o"
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o -MF CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o.d -o CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o -c /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/AdventureGameMap.cpp
 
 src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GameMap.dir/AdventureGameMap.cpp.i"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/AdventureGameMap.cpp > CMakeFiles/GameMap.dir/AdventureGameMap.cpp.i
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/AdventureGameMap.cpp > CMakeFiles/GameMap.dir/AdventureGameMap.cpp.i
 
 src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GameMap.dir/AdventureGameMap.cpp.s"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src/AdventureGameMap.cpp -o CMakeFiles/GameMap.dir/AdventureGameMap.cpp.s
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src/AdventureGameMap.cpp -o CMakeFiles/GameMap.dir/AdventureGameMap.cpp.s
 
 # Object files for target GameMap
 GameMap_OBJECTS = \
@@ -173,19 +173,19 @@ src/libGameMap.a: src/CMakeFiles/GameMap.dir/Monster.cpp.o
 src/libGameMap.a: src/CMakeFiles/GameMap.dir/AdventureGameMap.cpp.o
 src/libGameMap.a: src/CMakeFiles/GameMap.dir/build.make
 src/libGameMap.a: src/CMakeFiles/GameMap.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libGameMap.a"
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && $(CMAKE_COMMAND) -P CMakeFiles/GameMap.dir/cmake_clean_target.cmake
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameMap.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libGameMap.a"
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && $(CMAKE_COMMAND) -P CMakeFiles/GameMap.dir/cmake_clean_target.cmake
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GameMap.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/GameMap.dir/build: src/libGameMap.a
 .PHONY : src/CMakeFiles/GameMap.dir/build
 
 src/CMakeFiles/GameMap.dir/clean:
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src && $(CMAKE_COMMAND) -P CMakeFiles/GameMap.dir/cmake_clean.cmake
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src && $(CMAKE_COMMAND) -P CMakeFiles/GameMap.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/GameMap.dir/clean
 
 src/CMakeFiles/GameMap.dir/depend:
-	cd /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src/CMakeFiles/GameMap.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src/CMakeFiles/GameMap.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/GameMap.dir/depend
 

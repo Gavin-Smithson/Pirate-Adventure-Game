@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure
-# Build directory: /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build
+# Source directory: /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure
+# Build directory: /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
