@@ -4,6 +4,7 @@
 #include <Node.hpp>
 #include <Player.hpp>
 #include <iostream>
+#include <ctype.h>
 
 using namespace std;
 using namespace chants;
@@ -20,9 +21,13 @@ void AtNode(Node &viewPort) {
     cout << "\033[2J\033[1;1H";  // clear screen
 
     // Output contents of this Node
-    cout << "\nYou have arrived at the " << viewPort.GetName() + ".\n\n";
-    cout << viewPort.Description << endl
-         << "There are paths here..." << endl;
+    cout << "Location: " << viewPort.GetName() + "\n\n";
+    if (viewPort.GetId() != 19)
+    {
+        cout << viewPort.Description << endl
+             << "There are paths here ..." << endl;
+    }
+
     for (Node *node : viewPort.GetConnections()) {
         cout << node->GetId() << ". " << node->GetName() << endl;
     }
@@ -43,7 +48,7 @@ void AtNode(Node &viewPort) {
 }
     void fightMonster(Player* user, Monster* monster){
                     // decide if the user wants to use a health potion
-                    int healOrFight = 0;
+                    string healOrFight;
                     cout << "Current health: " << user->GetHealth() << endl;
                     cout << monster->GetName() << " health: " << monster->GetHealth() << endl;
 
@@ -51,23 +56,30 @@ void AtNode(Node &viewPort) {
                          << "[0] Attack the Monster" << endl
                          << "[1] Use a Health Potion [" << to_string(user->GetNumPotions()) << " left]" << endl;
                     cin >> healOrFight;
-                    if (healOrFight == 1) {
+                    if (healOrFight == "1")
                         if(user->GetHealth() == user->maxHealth)
                         {
-                            cout << "Health is already full." << endl;
+                            cout << "\nHealth is already full.\n" << endl;
                         }
                         else
                         {
                             user->usePotion();
-                            cout << "You drank a potion. Health restored to max." << endl;
+                            cout << "\nYou drank a potion. Health restored to max.\n" << endl;
                         }
-                    }
+                    else if (healOrFight == "0")
+                    {
                         // player attacks monster
-                        cout << "Player attacks monster"<< endl;
+                        cout << "\n-Player attacks monster"<< endl;
                         monster->takeDamage(user->playerAttack());
                         // monster attacks player
-                        cout << "Monster attacks player" << endl;
+                        cout << "\n-Monster attacks player" << endl;
                         user->takeDamage(monster->monsterAttack());
+                    }
+
+                    else
+                    {
+                        cout << "\nInvalid option selected please try again.\n\n";
+                    }
      
     }
 
@@ -126,6 +138,7 @@ int main()
     Node2.Description = "You've finally made it to the forest. The trees are \ndense, almost no sunlight makes it through the thick \nceiling. You know there will be enemies waiting \ninside, but you don't know what to expect. You see \na skeleton hiding in the shadows.\n";
     
     Node Node3(3, "Castle Azure");
+
     Node3.Description = "You make it out of the forest and continue through \nthe path. You find yourself face to face with a small \ncastle. It's made out of grey bricks and blue stones \non the top of the spires.\n";
     
     Node Node4(4, "Forbidden Forest");
@@ -313,8 +326,6 @@ int main()
 
     // Node 9 doesn't have assets
 
-    // Node 10 doesn't have assets
-
     gameMap[11].AddAsset(&IronSword);
     gameMap[11].AddAsset(&IronChestPlate);
 
@@ -339,7 +350,7 @@ int main()
     // get ready to play game below
     int nodePointer = 0;  // start at home
     string input;
-    Player user("tempName", 100, 0);
+    Player user("Player", 100, 0);
 
     // +++++++++ game loop ++++++++++
     
@@ -400,6 +411,7 @@ int main()
                         }
                 if (currMonster->GetHealth() <= 0)
                 {
+                    cout << "\n" <<currMonster->GetName() << " has been defeated!\n";
                     gameMap[nodePointer].RemoveMonster();
                 }
                 }
@@ -423,7 +435,7 @@ int main()
             break;
 
         int nodeAddr = -1;
-        if (isNumber(input))
+        if (isNumber(input) && input.length() >= 1)
         {
             nodeAddr = stoi(input);
         }
@@ -453,6 +465,33 @@ int main()
             int index = 0;
             bool foundItem = false;
             string lastWord = getLastWord(input);
+          
+            string upperLastWord = "";
+            for (char letter : lastWord)
+            {
+                upperLastWord += toupper(letter);
+            }
+            for (Asset *asset : gameMap[nodePointer].GetAssets())
+            {
+                string upperName = "";
+                for (char letter : asset->GetName())
+                {
+                    upperName += toupper(letter);
+                }
+                if (upperName == upperLastWord)
+                {
+                    user.TakeAsset(*asset);
+                    foundItem = true;
+                    break;
+                }
+            index++;
+            }
+
+            if (foundItem)
+            {
+                gameMap[nodePointer].RemoveAsset(index);
+            }
+
         }
 
         // if player wants to attack a monster (a kraken)
