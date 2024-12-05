@@ -41,7 +41,7 @@ void AtNode(Node &viewPort) {
 
     // Show any monsters at this Node
     for (Monster *monster : viewPort.GetMonsters()) {
-        cout << "Monster at this node: " << monster->GetName() << " " << monster->GetHealth() << endl;
+        cout << "A " << monster->GetName() << " has appeared!" << endl;
     }
 
     cout << "\n";
@@ -331,7 +331,7 @@ int main()
     gameMap[12].AddAsset(&MageStaff);
     gameMap[12].AddAsset(&HealthPotion);
 
-    // Code for Node 13 is in secret path
+    gameMap[13].AddAsset(&HealthPotion);
 
     gameMap[14].AddAsset(&HealthPotion);
 
@@ -343,24 +343,24 @@ int main()
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
-    gameMap[18].AddAsset(&WizardsCloak);
+    gameMap[18].AddAsset(&OldLordsArmor);
     gameMap[18].AddAsset(&HealthPotion);
 
-    gameMap[19].AddAsset(&HealthPotion);
+    // Node 19 doesnt have assets
 
 
     // build monsters
-    Monster MountainTroll("Mountain Troll", 120, 15);
+    Monster MountainTroll("Mountain Troll", 120, 10);
     Monster ForestTroll("Forest Troll", 100, 11);
-    Monster Wraith("Wraith", 66, 16);
+    Monster Wraith("Wraith", 50, 9);
     Monster WarriorsGhost("Warrior's Ghost", 50, 9);
-    Monster BuffBandit("\"Buff\" Bandit", 20, 20); // The "Buff" Bandit is meant to be weak
-    Monster ToughBandit("Tough Bandit", 40, 40);
-    Monster SassySquirrel("Sassy Squirrel", 30, 50); // Sercretly Buff Sleeper Build Squirrel
-    Monster Skeleton_1("Dusty Skeleton", 50, 40);
-    Monster Skeleton_2("Boney Skeleton", 50, 40);
-    Monster Planterror("Planterror", 150, 20);
-    Monster Dragon("Esqueuel the Dragon", 207, 25);
+    Monster BuffBandit("\"Buff\" Bandit", 15, 3); // The "Buff" Bandit is meant to be weak
+    Monster ToughBandit("Tough Bandit", 40, 11);
+    Monster SassySquirrel("Sassy Squirrel", 30, 15); // Sercretly Buff Sleeper Build Squirrel
+    Monster Skeleton_1("Dusty Skeleton", 50, 9);
+    Monster Skeleton_2("Boney Skeleton", 50, 9);
+    Monster Planterror("Planterror", 150, 16);
+    Monster Dragon("Esqueuel the Dragon", 207, 19);
 
 
     //Predetermined Monster Locations
@@ -392,19 +392,19 @@ int main()
 
     // Node 12 has no monsters -> general store
 
-    gameMap[13].AddMonster(&Wraith);
+    //gameMap[13].AddMonster(&Wraith); ---> FIXME: move to secret path or scrap
 
     gameMap[14].AddMonster(&MountainTroll);
 
     gameMap[15].AddMonster(&Skeleton_2);
     gameMap[15].AddMonster(&Wraith);
 
-    gameMap[16].AddMonster(&Skeleton_1);
-    gameMap[16].AddMonster(&Skeleton_2);
+    // gameMap[16].AddMonster(&Skeleton_1);
+    // gameMap[16].AddMonster(&Skeleton_2);
     
     gameMap[17].AddMonster(&Planterror);
 
-    gameMap[18].AddMonster(&BuffBandit);
+    //gameMap[18].AddMonster(&BuffBandit); ---> FIXME: move to secret path or scrap
 
     gameMap[19].AddMonster(&Dragon);
 
