@@ -1,13 +1,3 @@
-/**
- * @file Player.cpp
- * @author Dave Blair (dblair@seafoamtechnologies.com)
- * @brief This is a Unit Test Fixture to the Card class
- * @version 0.1
- * @date 2024-09-25
- *
- * @copyright Copyright (c) 2024 Seafoam Technologies
- *
- */
 #include <gtest/gtest.h>
 #include <vector>
 
@@ -16,15 +6,45 @@
 #include <Player.hpp>
 #include <Combatant.hpp>
 #include <Monster.hpp>
+#include <Asset.hpp>
+
+using namespace chants;
 
 // https://google.github.io/googletest/reference/assertions.html
 
+
+
 /**
- * @brief Test parameterized constructor that creates a valid Card object.
- *      In this case, a card is created at the lowest valid suit integer
- *      and the highest valid value integer. Suit 1, Value 1
+ * @brief Test parameterized constructor that creates a valid asset object
+ *  this test makes sure that all class variables match to their respective
+ *  class methods
  */
-TEST(NodeTest, ValidNode)
+TEST(AssetTest, ValidAsset)
 {
-    ASSERT_EQ(5, 5);
+    Asset WoodenPlank("WoodenPlank", "It is warped and shattered at the ends.", 50, true);
+    EXPECT_EQ(WoodenPlank.GetName(),"WoodenPlank");
+    EXPECT_EQ(WoodenPlank.GetMessage(),"It is warped and shattered at the ends.");
+    EXPECT_EQ(WoodenPlank.GetValue(),50);
+    EXPECT_EQ(WoodenPlank.isOffensive(),true);
+    EXPECT_EQ(WoodenPlank.isDefensive(),false);
+    EXPECT_EQ(WoodenPlank.isHealing(),false);
+
+}
+
+
+/**
+ * @brief Test parameterized constructor that checks a different type
+ * of asset object. an asset that is neither defensive or offensive should
+ * register as a healing object
+ */
+TEST(AssetTest, ValidIsHealing)
+{
+    Asset healthPotion("HealthPotion", "A health potion", 50, false,false);
+    EXPECT_EQ(healthPotion.GetName(),"HealthPotion");
+    EXPECT_EQ(healthPotion.GetMessage(),"A health potion");
+    EXPECT_EQ(healthPotion.GetValue(),50);
+    EXPECT_EQ(healthPotion.isOffensive(),false);
+    EXPECT_EQ(healthPotion.isDefensive(),false);
+    EXPECT_EQ(healthPotion.isHealing(),true);
+
 }
