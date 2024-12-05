@@ -8,12 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/app/game.cpp" "app/CMakeFiles/ChantsAdventure.dir/game.cpp.o" "gcc" "app/CMakeFiles/ChantsAdventure.dir/game.cpp.o.d"
+  "/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/app/game.cpp" "app/CMakeFiles/ChantsAdventure.dir/game.cpp.o" "gcc" "app/CMakeFiles/ChantsAdventure.dir/game.cpp.o.d"
   )
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src/CMakeFiles/GameMap.dir/DependInfo.cmake"
+  "/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src/CMakeFiles/GameMap.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

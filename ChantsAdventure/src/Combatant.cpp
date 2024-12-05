@@ -5,6 +5,13 @@ using namespace std;
 
 namespace chants
 {
+    /**
+     * @brief Construct a new Combatant object.
+     * 
+     * @param name The name of the combatant.
+     * @param health The initial health of the combatant.
+     * @param fightCoefficient The fight coefficient affecting combat performance.
+     */
     Combatant::Combatant(string name, int health, int fightCoefficient)
     {
         _name = name;
@@ -12,11 +19,21 @@ namespace chants
         _fightCoefficient = fightCoefficient;
     }
 
+    /**
+     * @brief Get the name of the combatant.
+     * 
+     * @return string The name of the combatant.
+     */
     string Combatant::GetName()
     {
         return _name;
     }
 
+    /**
+     * @brief Get the current health of the combatant.
+     * 
+     * @return int The current health of the combatant.
+     */
     int Combatant::GetHealth()
     {
         return _health;
@@ -32,8 +49,6 @@ namespace chants
         int diceRoll = (rand()%6)+1;
         cout << "You rolled a " << diceRoll << "!"<< endl;
         return diceRoll;
-
-
     }
 
     /// @brief combatant fight will return a dice roll, the player and combatant classes use this to attack the player
@@ -42,10 +57,14 @@ namespace chants
     {
         return(rollDice());
     }
-    /// @brief take damage for the current combatant
-    /// @param damage - the amount of damage taken
-    void Combatant::takeDamage(int damage){
-        _health -= damage;
 
+    /**
+     * @brief Apply damage to the current combatant.
+     * 
+     * @param damage The amount of damage taken.
+     */
+    void Combatant::takeDamage(int damage){
+        cout << GetName() << " took " << to_string(damage) << " damage!\n";
+        _health -= damage;
     }
 }

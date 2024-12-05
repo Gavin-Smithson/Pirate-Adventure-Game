@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/src -I/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/inc -isystem /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/_deps/googletest-src/googletest/include -isystem /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/_deps/googletest-src/googletest
+CXX_INCLUDES = -I/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/src -I/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/inc -isystem /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/_deps/googletest-src/googletest/include -isystem /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/_deps/googletest-src/googletest
 
 CXX_FLAGS = -std=gnu++17
 

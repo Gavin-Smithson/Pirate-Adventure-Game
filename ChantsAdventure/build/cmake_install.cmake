@@ -1,4 +1,4 @@
-# Install script for directory: /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure
+# Install script for directory: /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -44,27 +44,27 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/src/cmake_install.cmake")
+  include("/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/src/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/app/cmake_install.cmake")
+  include("/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/app/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/inc/cmake_install.cmake")
+  include("/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/inc/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/_deps/googletest-build/cmake_install.cmake")
+  include("/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/_deps/googletest-build/cmake_install.cmake")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/tests/cmake_install.cmake")
+  include("/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/tests/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -75,5 +75,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

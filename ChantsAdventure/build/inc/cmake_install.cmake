@@ -1,4 +1,4 @@
-# Install script for directory: /home/leharman/dev/CppFinalProj/CSCSI-207-final/ChantsAdventure/inc
+# Install script for directory: /home/gsmithson/dev/CSCI-207/final/CSCSI-207-final/ChantsAdventure/inc
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

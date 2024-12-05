@@ -4,6 +4,7 @@
 #include <Node.hpp>
 #include <Player.hpp>
 #include <iostream>
+#include <ctype.h>
 
 using namespace std;
 using namespace chants;
@@ -20,9 +21,13 @@ void AtNode(Node &viewPort) {
     cout << "\033[2J\033[1;1H";  // clear screen
 
     // Output contents of this Node
-    cout << "\nYou have arrived at the " << viewPort.GetName() + ".\n\n";
-    cout << viewPort.Description << endl
-         << "There are paths here..." << endl;
+    cout << "Location: " << viewPort.GetName() + "\n\n";
+    if (viewPort.GetId() != 19)
+    {
+        cout << viewPort.Description << endl
+             << "There are paths here ..." << endl;
+    }
+
     for (Node *node : viewPort.GetConnections()) {
         cout << node->GetId() << ". " << node->GetName() << endl;
     }
@@ -43,7 +48,7 @@ void AtNode(Node &viewPort) {
 }
     void fightMonster(Player* user, Monster* monster){
                     // decide if the user wants to use a health potion
-                    int healOrFight = 0;
+                    string healOrFight;
                     cout << "Current health: " << user->GetHealth() << endl;
                     cout << monster->GetName() << " health: " << monster->GetHealth() << endl;
 
@@ -51,23 +56,30 @@ void AtNode(Node &viewPort) {
                          << "[0] Attack the Monster" << endl
                          << "[1] Use a Health Potion [" << to_string(user->GetNumPotions()) << " left]" << endl;
                     cin >> healOrFight;
-                    if (healOrFight == 1) {
+                    if (healOrFight == "1")
                         if(user->GetHealth() == user->maxHealth)
                         {
-                            cout << "Health is already full." << endl;
+                            cout << "\nHealth is already full.\n" << endl;
                         }
                         else
                         {
                             user->usePotion();
-                            cout << "You drank a potion. Health restored to max." << endl;
+                            cout << "\nYou drank a potion. Health restored to max.\n" << endl;
                         }
-                    }
+                    else if (healOrFight == "0")
+                    {
                         // player attacks monster
-                        cout << "Player attacks monster"<< endl;
+                        cout << "\n-Player attacks monster"<< endl;
                         monster->takeDamage(user->playerAttack());
                         // monster attacks player
-                        cout << "Monster attacks player" << endl;
+                        cout << "\n-Monster attacks player" << endl;
                         user->takeDamage(monster->monsterAttack());
+                    }
+
+                    else
+                    {
+                        cout << "\nInvalid option selected please try again.\n\n";
+                    }
      
     }
 
@@ -126,6 +138,7 @@ int main()
     Node2.Description = "You've finally made it to the forest. The trees are \ndense, almost no sunlight makes it through the thick \nceiling. You know there will be enemies waiting \ninside, but you don't know what to expect. You see \na skeleton hiding in the shadows.\n";
     
     Node Node3(3, "Castle Azure");
+
     Node3.Description = "You make it out of the forest and continue through \nthe path. You find yourself face to face with a small \ncastle. It's made out of grey bricks and blue stones \non the top of the spires.\n";
     
     Node Node4(4, "Forbidden Forest");
@@ -168,7 +181,7 @@ int main()
     Node16.Description = "You arrive at a castle, draped in red flags. Walking \nthrough the open gates, you find the armored corpses \nof knights, torn asunder by some terrible beast. \nThe southern wall was forced open by what appears \nto be simply roots and vines.\n";
     
     Node Node17(17, "Teleportation Sigil");
-    Node17.Description = "You arrive in a field of crops and bones. Wheat and \ncorn surround you, crushed and ripped apart by a \npowerful beast. A broken bridge can be seen in one \ndirection. In the other, a distant homestead on fire. \nNext to you sits an orb atop a pedestal. Beneath your feet,\nyou see a familiar sigil, its magical energy now\nextinguished. A strange feeling overcomes you...\n";
+    Node17.Description = "You arrive in a field of crops and bones. Wheat and \ncorn surround you, crushed and ripped apart by a \npowerful beast. A broken bridge can be seen in one \ndirection. In the other, a distant homestead on fire. \nNext to you sits an orb atop a pedestal. Behind\nthe pedestal lies the body of an old mage, his torso\nwrapped in vines.\n";
 
     Node Node18(18, "Destroyed Homestead");
     Node18.Description = "Past the crops, you find yourself amidst the flaming ruins of\na homestead. Once the food supplier of a nearby kingdom,\nthe buildings surrounding you now lie crumbled, toppled\nby a terror perhaps even greater than the Dragon Esqueuel.\nDozens of armored corpses can be seen spread about\nthe destruction. Adorning their armor, you see\na red insignia.\n";
@@ -267,21 +280,21 @@ int main()
     // FIXME: remove all the commented out code
 
     // Weapons
-    Asset WoodenPlank("Wooden Plank", "It is warped and shattered at the ends.", 50, true);
-    Asset IronSword("Iron Sword", "Its a small blade and isn't very sharp.", 150, true);
-    Asset MageStaff("Mage Staff", "An wooden staff with a jewel at the top. When \npointed at an enemy, purple flames pour out of the jewel.", 200, true);
-    Asset OldSorcerersSword("Old Sorcerers Sword", "A longsword infused with old, powerful magic. \nRadiant blue runes can be seen along the blade.", 250, true);
+    Asset WoodenPlank("WoodenPlank", "It is warped and shattered at the ends.", 50, true);
+    Asset IronSword("IronSword", "Its a small blade and isn't very sharp.", 150, true);
+    Asset MageStaff("MageStaff", "An wooden staff with a jewel at the top. When \npointed at an enemy, purple flames pour out of the jewel.", 200, true);
+    Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. \nRadiant blue runes can be seen along the blade.", 250, true);
 
     // Armor
-    Asset RustyChestPlate("Rusty Chest Plate", "It is old and dingy. There is some rust on it, but otherwise usable.", 2, false, true);
-    Asset IronChestPlate("Iron Chest Plate", "You can see your reflection in the polished surface..", 7, false, true);
-    Asset WizardsCloak("Wizards Cloak", "The cloak glows faintly. Each fiber is imbued with protective magic.", 15, false, true);
+    Asset RustyChestPlate("RustyChestPlate", "It is old and dingy. There is some rust on it, but otherwise usable.", 2, false, true);
+    Asset IronChestPlate("IronChestPlate", "You can see your reflection in the polished surface..", 7, false, true);
+    Asset WizardsCloak("WizardsCloak", "The cloak glows faintly. Each fiber is imbued with protective magic.", 15, false, true);
 
     //Secret Boss Reward -> Armor
-    Asset OldLordsArmor("Old Lord's Armor", "An exquisite set of plate armor, adorned with gold \naccents and magical sigils.", 20, false, true);
+    Asset OldLordsArmor("OldLordsArmor", "An exquisite set of plate armor, adorned with gold \naccents and magical sigils.", 20, false, true);
 
     // Health
-    Asset HealthPotion("Health Potion", "A magical concoction that seals your wounds and restore your stamina.", 50);
+    Asset HealthPotion("HealthPotion", "A magical concoction that seals your wounds and restore your stamina.", 50);
 
 
     //Predetermined Asset Locations
@@ -311,8 +324,6 @@ int main()
     // Node 8 doesn't have assets
 
     // Node 9 doesn't have assets
-
-    // Node 10 doesn't have assets
 
     gameMap[11].AddAsset(&IronSword);
     gameMap[11].AddAsset(&IronChestPlate);
@@ -350,6 +361,7 @@ int main()
     Monster Skeleton_2("Boney Skeleton", 50, 30);
     Monster Planterror("Planterror", 250, 40);
     Monster Dragon("Esqueuel the Dragon", 400, 50);
+
 
     //Predetermined Monster Locations
     
@@ -401,11 +413,59 @@ int main()
     // get ready to play game below
     int nodePointer = 0;  // start at home
     string input;
-    Player user("tempName", 100, 0);
 
     // +++++++++ game loop ++++++++++
     
     bool visitSecret = false;
+
+    string startInput = "";
+
+    while (true)
+    {
+        cout << "\033[36m\u250F-------------------------------------------------------\u2513" << endl;
+        cout << "\u2503                   \033[1;37mCHANTS ADVENTURE\033[0m\033[36m                    \u2503" << endl;
+        cout << "\u2517-------------------------------------------------------\u251B\033[0m" << endl;
+        cout << "\n1) PLAY" << endl;
+        cout << "2) GAME RULES" << endl;
+        cout << "3) LORE" << endl;
+        cout << "Enter your choice: ";
+
+        cin >> startInput;
+
+        if (startInput == "1")
+        {
+            break;
+        }
+        else if (startInput == "2")
+        {
+            cout << "\033[2J\033[1;1H";
+            cout << "\nTo play, type in the number of the path you wish to take.\nTo pick up an item, type in t ITEMNAME (not case sensitive).\n" << endl;
+            continue;
+        }
+        else if (startInput == "3")
+        {
+            cout << "\033[2J\033[1;1H";
+            cout << "\nYou are an pirate who sails around the globe looking\nfor glory. That glory comes with ego and you are\nfull of it. You sail toward Seasharp island known\nfor, well, it's name! The island is sharp and deadly\na dragon attacks your ship and killed your\nwife and wipes your ship into a sharp rock.\nSinking you and leaving you stranded.\n" << endl;
+            continue;
+        }
+
+        else
+        {
+            cout << "\033[2J\033[1;1H";
+            cout << "\nInvalid input. Please try again." << endl;
+            continue;
+        }        
+
+    }
+
+    cout << "\033[2J\033[1;1H";
+    string userName;
+    
+    cout << "Enter player name: ";
+    cin  >> userName;
+
+    Player user(userName, 100, 0);
+    cin.get();
 
     while (true)
     {
@@ -462,6 +522,7 @@ int main()
                         }
                 if (currMonster->GetHealth() <= 0)
                 {
+                    cout << "\n" <<currMonster->GetName() << " has been defeated!\n";
                     gameMap[nodePointer].RemoveMonster();
                 }
                 }
@@ -485,7 +546,7 @@ int main()
             break;
 
         int nodeAddr = -1;
-        if (isNumber(input))
+        if (isNumber(input) && input.length() >= 1)
         {
             nodeAddr = stoi(input);
         }
@@ -515,6 +576,33 @@ int main()
             int index = 0;
             bool foundItem = false;
             string lastWord = getLastWord(input);
+          
+            string upperLastWord = "";
+            for (char letter : lastWord)
+            {
+                upperLastWord += toupper(letter);
+            }
+            for (Asset *asset : gameMap[nodePointer].GetAssets())
+            {
+                string upperName = "";
+                for (char letter : asset->GetName())
+                {
+                    upperName += toupper(letter);
+                }
+                if (upperName == upperLastWord)
+                {
+                    user.TakeAsset(*asset);
+                    foundItem = true;
+                    break;
+                }
+            index++;
+            }
+
+            if (foundItem)
+            {
+                gameMap[nodePointer].RemoveAsset(index);
+            }
+
         }
 
         // if player wants to attack a monster (a kraken)
