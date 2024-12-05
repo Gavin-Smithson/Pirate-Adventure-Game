@@ -46,7 +46,7 @@ namespace chants
         // if you guys want to prompt the player to roll the dice or not but if we wanted we can uncomment this line
         // cout << "Would you like to roll a dice> [Y/N]"<<endl;
         cout <<"Rolling dice..."<< endl;
-        int diceRoll = (rand()%6)+1;
+        int diceRoll = (rand()%12)+1;
         cout << "You rolled a " << diceRoll << "!"<< endl;
         return diceRoll;
     }
