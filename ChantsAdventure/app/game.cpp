@@ -181,7 +181,7 @@ int main()
     Node16.Description = "You arrive at a castle, draped in red flags. Walking \nthrough the open gates, you find the armored corpses \nof knights, torn asunder by some terrible beast. \nThe southern wall was forced open by what appears \nto be simply roots and vines.\n";
     
     Node Node17(17, "Teleportation Sigil");
-    Node17.Description = "You arrive in a field of crops and bones. Wheat and \ncorn surround you, crushed and ripped apart by a \npowerful beast. A broken bridge can be seen in one \ndirection. In the other, a distant homestead on fire. \nNext to you sits an orb atop a pedestal. Beneath your feet,\nyou see a familiar sigil, its magical energy now\nextinguished. A strange feeling overcomes you...\n";
+    Node17.Description = "You arrive in a field of crops and bones. Wheat and \ncorn surround you, crushed and ripped apart by a \npowerful beast. A broken bridge can be seen in one \ndirection. In the other, a distant homestead on fire. \nNext to you sits an orb atop a pedestal. Behind\nthe pedestal lies the body of an old mage, his torso\nwrapped in vines.\n";
 
     Node Node18(18, "Destroyed Homestead");
     Node18.Description = "Past the crops, you find yourself amidst the flaming ruins of\na homestead. Once the food supplier of a nearby kingdom,\nthe buildings surrounding you now lie crumbled, toppled\nby a terror perhaps even greater than the Dragon Esqueuel.\nDozens of armored corpses can be seen spread about\nthe destruction. Adorning their armor, you see\na red insignia.\n";
