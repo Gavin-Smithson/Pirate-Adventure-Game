@@ -69,10 +69,10 @@ void AtNode(Node &viewPort) {
                     else if (healOrFight == "0")
                     {
                         // player attacks monster
-                        cout << "\n-Player attacks monster"<< endl;
+                        cout << "\n - You attack the monster!"<< endl;
                         monster->takeDamage(user->playerAttack());
                         // monster attacks player
-                        cout << "\n-Monster attacks player" << endl;
+                        cout << "\n - The monster attacks you!" << endl;
                         user->takeDamage(monster->monsterAttack());
                     }
 
@@ -280,15 +280,15 @@ int main()
     // FIXME: remove all the commented out code
 
     // Weapons
-    Asset WoodenPlank("WoodenPlank", "It is warped and shattered at the ends.", 50, true);
-    Asset IronSword("IronSword", "Its a small blade and isn't very sharp.", 150, true);
-    Asset MageStaff("MageStaff", "An wooden staff with a jewel at the top. When \npointed at an enemy, purple flames pour out of the jewel.", 200, true);
-    Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. \nRadiant blue runes can be seen along the blade.", 250, true);
+    Asset WoodenPlank("WoodenPlank", "It is warped and shattered at the ends, but it would still hurt to get hit with.", 5, true);
+    Asset IronSword("IronSword", "Its a small blade and isn't very sharp.", 20, true);
+    Asset MageStaff("MageStaff", "An wooden staff with a jewel at the top. When \npointed at an enemy, purple flames pour out of the jewel.", 50, true);
+    Asset OldSorcerersSword("OldSorcerersSword", "A longsword infused with old, powerful magic. \nRadiant blue runes can be seen along the blade.", 55, true);
 
     // Armor
     Asset RustyChestPlate("RustyChestPlate", "It is old and dingy. There is some rust on it, but otherwise usable.", 2, false, true);
-    Asset IronChestPlate("IronChestPlate", "You can see your reflection in the polished surface..", 7, false, true);
-    Asset WizardsCloak("WizardsCloak", "The cloak glows faintly. Each fiber is imbued with protective magic.", 15, false, true);
+    Asset IronChestPlate("IronChestPlate", "You can see your reflection in the polished surface..", 13, false, true);
+    Asset WizardsCloak("WizardsCloak", "The cloak glows faintly. Each fiber is imbued with protective magic.", 18, false, true);
 
     //Secret Boss Reward -> Armor
     Asset OldLordsArmor("OldLordsArmor", "An exquisite set of plate armor, adorned with gold \naccents and magical sigils.", 20, false, true);
@@ -352,14 +352,14 @@ int main()
     // build monsters
     Monster MountainTroll("Mountain Troll", 120, 15);
     Monster ForestTroll("Forest Troll", 100, 11);
-    Monster Wraith("Wraith", 66, 6);
+    Monster Wraith("Wraith", 66, 16);
     Monster WarriorsGhost("Warrior's Ghost", 50, 9);
-    Monster BuffBandit("\"Buff\" Bandit", 10, 3); // The "Buff" Bandit is meant to be weak
-    Monster ToughBandit("Tough Bandit", 20, 10);
-    Monster SassySquirrel("Sassy Squirrel", 30, 99); // Sercretly Buff Sleeper Build Squirrel
-    Monster Skeleton_1("Dusty Skeleton", 50, 10);
-    Monster Skeleton_2("Boney Skeleton", 50, 10);
-    Monster Planterror("Planterror", 150, 15);
+    Monster BuffBandit("\"Buff\" Bandit", 20, 20); // The "Buff" Bandit is meant to be weak
+    Monster ToughBandit("Tough Bandit", 40, 40);
+    Monster SassySquirrel("Sassy Squirrel", 30, 50); // Sercretly Buff Sleeper Build Squirrel
+    Monster Skeleton_1("Dusty Skeleton", 50, 40);
+    Monster Skeleton_2("Boney Skeleton", 50, 40);
+    Monster Planterror("Planterror", 150, 20);
     Monster Dragon("Esqueuel the Dragon", 207, 25);
 
 

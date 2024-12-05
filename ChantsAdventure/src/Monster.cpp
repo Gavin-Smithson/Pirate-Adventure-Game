@@ -27,6 +27,6 @@ namespace chants
     int Monster::monsterAttack(){
         int diceRoll = rollDice();
         // return the diceroll + fightCoefficient, if diceroll + fightCoefficient is less than zero, return 0
-        return (diceRoll < 0) ? 0 : (diceRoll);
+        return max(0, diceRoll) + _fightCoefficient;
     }
 }
