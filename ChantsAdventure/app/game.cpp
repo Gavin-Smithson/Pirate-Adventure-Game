@@ -190,7 +190,7 @@ int main()
     Node19.Description = "A great shadow swallows the sunlight on the ground \nin front of you. A deafening roar shakes you to \nthe core. The dragon is here. The time has come \nto face the beast that has been plaguing the island. \nThe shadow was heading towards a massive castle with \ndozens of blue spires.\n";
 
     Node Node20(20, "Dragon's Hoard");
-    Node20.Description = "After you defeated the dragon, you walked through \nthe broken castle wall. Vast mountains of gold, \ngemstones, trinkets and more appear in front of \nyour eyes. \n";
+    Node20.Description = "After you defeated the dragon, you walked through \nthe broken castle wall. Vast mountains of gold, \ngemstones, trinkets and more appear in front of \nyour eyes. You win!\n";
     // connect nodes paths
 
     Node0.AddConnection(&Node1);
