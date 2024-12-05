@@ -350,22 +350,20 @@ int main()
 
 
     // build monsters
-    Monster MountainTroll("Mountain Troll", 200, 30);
-    Monster ForestTroll("Forest Troll", 200, 20);
-    Monster Wraith("Wraith", 200, 40);
-    Monster WarriorsGhost("Warrior's Ghost", 150, 20);
-    Monster BuffBandit("\"Buff\" Bandit", 10, 5); // The "Buff" Bandit is meant to be weak
-    Monster ToughBandit("Tough Bandit", 20, 20);
-    Monster SassySquirrel("Sassy Squirrel", 30, 100);
-    Monster Skeleton_1("Dusty Skeleton", 50, 30);
-    Monster Skeleton_2("Boney Skeleton", 50, 30);
-    Monster Planterror("Planterror", 250, 40);
-    Monster Dragon("Esqueuel the Dragon", 400, 50);
+    Monster MountainTroll("Mountain Troll", 120, 15);
+    Monster ForestTroll("Forest Troll", 100, 11);
+    Monster Wraith("Wraith", 66, 6);
+    Monster WarriorsGhost("Warrior's Ghost", 50, 9);
+    Monster BuffBandit("\"Buff\" Bandit", 10, 3); // The "Buff" Bandit is meant to be weak
+    Monster ToughBandit("Tough Bandit", 20, 10);
+    Monster SassySquirrel("Sassy Squirrel", 30, 99); // Sercretly Buff Sleeper Build Squirrel
+    Monster Skeleton_1("Dusty Skeleton", 50, 10);
+    Monster Skeleton_2("Boney Skeleton", 50, 10);
+    Monster Planterror("Planterror", 150, 15);
+    Monster Dragon("Esqueuel the Dragon", 207, 25);
 
 
     //Predetermined Monster Locations
-    
-    //gameMap[0].AddMonster(&BuffBandit); // --> FIXME: Test Node, can get rid of line
 
     gameMap[1].AddMonster(&BuffBandit);
 
