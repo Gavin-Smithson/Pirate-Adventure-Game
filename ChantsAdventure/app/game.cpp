@@ -344,14 +344,22 @@ int main()
     Monster WarriorsGhost("Warrior's Ghost", 150, 20);
     Monster BuffBandit("\"Buff\" Bandit", 10, 5); // The "Buff" Bandit is meant to be weak
     Monster SassySquirrel("Sassy Squirrel", 30, 100);
-    Monster Skeleton("Skeleton", 50, 30);
+    Monster Skeleton_1("Dusty Skeleton", 50, 30);
+    Monster Skeleton_2("Boney Skeleton", 50, 30);
     Monster Dragon("Esqueuel the Dragon", 400, 50);
 
     //Predetermined Monster Locations
     
-    gameMap[0].AddMonster(&BuffBandit);
+    //gameMap[0].AddMonster(&BuffBandit); // --> FIXME: Test Node
 
-    gameMap[4].AddMonster(&Skeleton);
+    gameMap[1].AddMonster(&BuffBandit);
+
+    gameMap[2].AddMonster(&Skeleton_1);
+
+    gameMap[3].AddMonster(&Wraith);
+    gameMap[3].AddMonster(&Skeleton_2);
+
+    gameMap[19].AddMonster(&Dragon);
 
     // get ready to play game below
     int nodePointer = 0;  // start at home
