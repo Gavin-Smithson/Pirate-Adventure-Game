@@ -339,11 +339,59 @@ int main()
     // get ready to play game below
     int nodePointer = 0;  // start at home
     string input;
-    Player user("Player", 100, 0);
 
     // +++++++++ game loop ++++++++++
     
     bool visitSecret = false;
+
+    string startInput = "";
+
+    while (true)
+    {
+        cout << "---------------------------------" << endl;
+        cout << "|        CHANTS ADVENTURE       |" << endl;
+        cout << "---------------------------------" << endl;
+        cout << "\n1) PLAY" << endl;
+        cout << "2) GAME RULES" << endl;
+        cout << "3) LORE" << endl;
+        cout << "Enter your choice: ";
+
+        cin >> startInput;
+
+        if (startInput == "1")
+        {
+            break;
+        }
+        else if (startInput == "2")
+        {
+            cout << "\033[2J\033[1;1H";
+            cout << "\nTo play, type in the number of the path you wish to take.\nTo pick up an item, type in t ITEMNAME (not case sensitive).\n" << endl;
+            continue;
+        }
+        else if (startInput == "3")
+        {
+            cout << "\033[2J\033[1;1H";
+            cout << "\nYou are an pirate who sails around the globe looking\nfor glory. That glory comes with ego and you are\nfull of it. You sail toward Seasharp island known\nfor, well, it's name! The island is sharp and deadly\na dragon attacks your ship and killed your\nwife and wipes your ship into a sharp rock.\nSinking you and leaving you stranded.\n" << endl;
+            continue;
+        }
+
+        else
+        {
+            cout << "\033[2J\033[1;1H";
+            cout << "\nInvalid input. Please try again." << endl;
+            continue;
+        }        
+
+    }
+
+    cout << "\033[2J\033[1;1H";
+    string userName;
+    
+    cout << "Enter player name: ";
+    cin  >> userName;
+
+    Player user(userName, 100, 0);
+    cin.get();
 
     while (true)
     {
