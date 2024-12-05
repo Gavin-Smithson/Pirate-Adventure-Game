@@ -317,22 +317,29 @@ int main()
     gameMap[11].AddAsset(&IronSword);
     gameMap[11].AddAsset(&IronChestPlate);
 
+    gameMap[12].AddAsset(&MageStaff);
     gameMap[12].AddAsset(&HealthPotion);
 
     // Code for Node 13 is in secret path
+
+    gameMap[14].AddAsset(&HealthPotion);
+
+    gameMap[15].AddAsset(&HealthPotion);
+
+    
 
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
 
     // build monsters
-    Monster ghoul("Ghoul", 5, 100);
-    Monster goblin("Goblin", 6, 100);
-    Monster kraken("Kraken", 7, 100);
-    Monster demon("Demon", 5, 100);
-    Monster griffin("Griffin", 4, 100);
-    Monster skeleton("Skeleton", 4, 100);
-    Monster dragon("Esqueuel", 4, 100);
+    Monster MountainTroll("Mountain Troll", 5, 100);
+    Monster Wraith("Wraith", 6, 100);
+    Monster WarriorsGhost("Warrior's Ghost", 7, 100);
+    Monster BuffBandit("Buff Bandit", 5, 100);
+    Monster SassySquirrel("Sassy Squirrel", 4, 100);
+    Monster Skeleton("Skeleton", 4, 100);
+    Monster Dragon("Esqueuel the Dragon", 4, 100);
 
     //Predetermined Monster Locations
 
