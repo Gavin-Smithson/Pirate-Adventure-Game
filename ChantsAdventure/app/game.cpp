@@ -521,8 +521,7 @@ int main()
                 while (currMonster->GetHealth() > 0) {
                     fightMonster(&user, currMonster);
                     if (user.GetHealth() <= 0) {
-                        cout << "You died!" << endl
-                                << "current room: " << nodePointer << endl;
+                        cout << "\nYou died in the " << gameMap[nodePointer].GetName() << "!" << endl;
                             return 0;
                         }
                 if (currMonster->GetHealth() <= 0)
