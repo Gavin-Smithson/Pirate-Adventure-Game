@@ -189,6 +189,8 @@ int main()
     Node Node19(19, "Dragon's Castle");
     Node19.Description = "A great shadow swallows the sunlight on the ground \nin front of you. A deafening roar shakes you to \nthe core. The dragon is here. The time has come \nto face the beast that has been plaguing the island. \nThe shadow was heading towards a massive castle with \ndozens of blue spires.\n";
 
+    Node Node20(20, "Dragon's Hoard");
+    Node20.Description = "After you defeated the dragon, you walked through \nthe broken castle wall. Vast mountains of gold, \ngemstones, trinkets and more appear in front of \nyour eyes. You win!\n";
     // connect nodes paths
 
     Node0.AddConnection(&Node1);
@@ -249,6 +251,10 @@ int main()
 
     Node18.AddConnection(&Node16);
 
+    Node19.AddConnection(&Node20);
+
+    Node20.AddConnection(&Node19);
+
     //build map in same order as Node Ids above.
     //The index of each node in the vector must match it's id.
     gameMap.push_back(Node0);
@@ -271,6 +277,7 @@ int main()
     gameMap.push_back(Node17);
     gameMap.push_back(Node18);
     gameMap.push_back(Node19);
+    gameMap.push_back(Node20);
 
  
 
@@ -526,8 +533,7 @@ int main()
                 while (currMonster->GetHealth() > 0) {
                     fightMonster(&user, currMonster);
                     if (user.GetHealth() <= 0) {
-                        cout << "You died!" << endl
-                                << "current room: " << nodePointer << endl;
+                        cout << "\nYou died in the " << gameMap[nodePointer].GetName() << "!" << endl;
                             return 0;
                         }
                 if (currMonster->GetHealth() <= 0)

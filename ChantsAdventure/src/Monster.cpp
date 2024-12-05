@@ -1,4 +1,5 @@
 #include <Monster.hpp>
+#include <iostream>
 
 namespace chants
 {
@@ -26,6 +27,8 @@ namespace chants
      */
     int Monster::monsterAttack(){
         int diceRoll = rollDice();
+
+        cout << _name << " rolled a " << diceRoll << "!"<< endl;
         // return the diceroll + fightCoefficient, if diceroll + fightCoefficient is less than zero, return 0
         return max(0, diceRoll) + _fightCoefficient;
     }

@@ -47,7 +47,6 @@ namespace chants
         // cout << "Would you like to roll a dice> [Y/N]"<<endl;
         cout <<"Rolling dice..."<< endl;
         int diceRoll = (rand()%12)+1;
-        cout << "You rolled a " << diceRoll << "!"<< endl;
         return diceRoll;
     }
 
