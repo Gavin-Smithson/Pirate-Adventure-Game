@@ -337,13 +337,12 @@ int main()
 
 
     // build monsters
-    Monster ghoul("Ghoul", 5, 100);
-    Monster goblin("Goblin", 6, 100);
-    Monster kraken("Kraken", 7, 100);
-    Monster demon("Demon", 5, 100);
-    Monster griffin("Griffin", 4, 100);
-    Monster skeleton("Skeleton", 4, 100);
-    Monster dragon("Esqueuel", 4, 100);
+    Monster ghoul("Ghoul", 5, 2);
+    Monster goblin("Goblin", 6, 3);
+    Monster demon("Demon", 8, 4);
+    Monster skeleton("Skeleton", 10, 1);
+    Monster dragon("Esqueuel", 20, 5);
+    Monster planterror("planterror", 5, 5);
 
     //Predetermined Monster Locations
 
