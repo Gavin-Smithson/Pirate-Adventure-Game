@@ -355,7 +355,7 @@ int main()
     Monster Wraith("Wraith", 200, 40);
     Monster WarriorsGhost("Warrior's Ghost", 150, 20);
     Monster BuffBandit("\"Buff\" Bandit", 10, 5); // The "Buff" Bandit is meant to be weak
-    Monster ToughBandit("Tough Bandit", 90, 20);
+    Monster ToughBandit("Tough Bandit", 20, 20);
     Monster SassySquirrel("Sassy Squirrel", 30, 100);
     Monster Skeleton_1("Dusty Skeleton", 50, 30);
     Monster Skeleton_2("Boney Skeleton", 50, 30);
