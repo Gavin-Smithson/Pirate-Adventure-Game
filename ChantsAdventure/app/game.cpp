@@ -447,7 +447,7 @@ int main()
         else if (startInput == "2")
         {
             
-            cout << "\nTo play, type in the number of the path you wish to take.\nTo pick up an item, type in t ITEMNAME (not case sensitive).\n" << endl;
+            cout << "\nTo play, type in the number of the path you wish to take.\nTo pick up an item, type in t ITEMNAME.\n(\'t\' must be lowercase, ITEMNAME not case sensitive)\n" << endl;
             
         }
         else if (startInput == "3")
