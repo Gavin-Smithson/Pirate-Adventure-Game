@@ -142,7 +142,7 @@ int main()
     Node3.Description = "You make it out of the forest and continue through \nthe path. You find yourself face to face with a small \ncastle. It's made out of grey bricks and blue stones \non the top of the spires.\n";
     
     Node Node4(4, "Forbidden Forest");
-    Node4.Description = "Further down the trail you notice a big forest, way \nlarger than the one you've gone through before. \nThere is a sign nailed to a dead tree, you examine \nthe sign and it reads \"Forbidden Forest - DO NOT ENTER\". \nAfter reading the sign you feel a chill as you notice \na spider climbing up your hand. After promptly \nsquishing it you know this forest is going to be \ndangerous.\n";
+    Node4.Description = "Further down the trail you notice a bigger forest, way \nlarger than the one you've gone through before. \nThere is a sign nailed to a dead tree, you examine \nthe sign and it reads \"Forbidden Forest - DO NOT ENTER\". \nAfter reading the sign you feel a chill as you notice \na spider climbing up your hand. After promptly \nsquishing it you know this forest is going to be \ndangerous.\n";
     
     Node Node5(5, "Roadside Inn");
     Node5.Description = "You approach an inn on the side of the road. The \nsign above the door reads \"Traveler's Haven\". Smoke \nis coming out of the chimney and a warm glow pours \nfrom the windows.\n";
@@ -328,24 +328,87 @@ int main()
     gameMap[11].AddAsset(&IronSword);
     gameMap[11].AddAsset(&IronChestPlate);
 
+    gameMap[12].AddAsset(&MageStaff);
     gameMap[12].AddAsset(&HealthPotion);
 
     // Code for Node 13 is in secret path
 
+    gameMap[14].AddAsset(&HealthPotion);
+
+    gameMap[15].AddAsset(&IronChestPlate);
+
+    gameMap[16].AddAsset(&IronSword);
+    gameMap[16].AddAsset(&HealthPotion);
+
     gameMap[17].AddAsset(&OldSorcerersSword);
     gameMap[17].AddAsset(&HealthPotion);
 
+    gameMap[18].AddAsset(&WizardsCloak);
+    gameMap[18].AddAsset(&HealthPotion);
+
+    gameMap[19].AddAsset(&HealthPotion);
+
 
     // build monsters
-    Monster ghoul("Ghoul", 5, 2);
-    Monster goblin("Goblin", 6, 3);
-    Monster demon("Demon", 8, 4);
-    Monster skeleton("Skeleton", 10, 1);
-    Monster dragon("Esqueuel", 20, 5);
-    Monster planterror("planterror", 5, 5);
+    Monster MountainTroll("Mountain Troll", 200, 30);
+    Monster ForestTroll("Forest Troll", 200, 20);
+    Monster Wraith("Wraith", 200, 40);
+    Monster WarriorsGhost("Warrior's Ghost", 150, 20);
+    Monster BuffBandit("\"Buff\" Bandit", 10, 5); // The "Buff" Bandit is meant to be weak
+    Monster ToughBandit("Tough Bandit", 90, 20);
+    Monster SassySquirrel("Sassy Squirrel", 30, 100);
+    Monster Skeleton_1("Dusty Skeleton", 50, 30);
+    Monster Skeleton_2("Boney Skeleton", 50, 30);
+    Monster Planterror("Planterror", 250, 40);
+    Monster Dragon("Esqueuel the Dragon", 400, 50);
+
 
     //Predetermined Monster Locations
+    
+    //gameMap[0].AddMonster(&BuffBandit); // --> FIXME: Test Node, can get rid of line
 
+    gameMap[1].AddMonster(&BuffBandit);
+
+    gameMap[2].AddMonster(&Skeleton_1);
+
+    gameMap[3].AddMonster(&Wraith);
+    gameMap[3].AddMonster(&Skeleton_2);
+
+    gameMap[4].AddMonster(&SassySquirrel);
+    gameMap[4].AddMonster(&ForestTroll);
+
+    gameMap[5].AddMonster(&BuffBandit);
+    gameMap[5].AddMonster(&ToughBandit);
+
+    gameMap[6].AddMonster(&SassySquirrel);
+
+    // Node 7 has no monsters -> port town
+
+    // Node 8 has no monsters -> hint to secret
+
+    // Node 9 has no monsters -> town entrance
+
+    // Node 10 has no monsters -> town square
+
+    // Node 11 has no monsters -> blacksmith
+
+    // Node 12 has no monsters -> general store
+
+    gameMap[13].AddMonster(&Wraith);
+
+    gameMap[14].AddMonster(&MountainTroll);
+
+    gameMap[15].AddMonster(&Skeleton_2);
+    gameMap[15].AddMonster(&Wraith);
+
+    gameMap[16].AddMonster(&Skeleton_1);
+    gameMap[16].AddMonster(&Skeleton_2);
+    
+    gameMap[17].AddMonster(&Planterror);
+
+    gameMap[18].AddMonster(&BuffBandit);
+
+    gameMap[19].AddMonster(&Dragon);
 
     // get ready to play game below
     int nodePointer = 0;  // start at home
