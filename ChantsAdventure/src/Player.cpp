@@ -94,6 +94,7 @@ namespace chants
 
                 // Erase the last health potion
                 _assets.pop_back();
+                break;
             }
         }
         if (!foundHealthPotion){
