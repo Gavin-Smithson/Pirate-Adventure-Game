@@ -359,9 +359,9 @@ int main()
 
     while (true)
     {
-        cout << "---------------------------------" << endl;
-        cout << "|        CHANTS ADVENTURE       |" << endl;
-        cout << "---------------------------------" << endl;
+        cout << "\033[36m\u250F-------------------------------------------------------\u2513" << endl;
+        cout << "\u2503                   \033[1;37mCHANTS ADVENTURE\033[0m\033[36m                    \u2503" << endl;
+        cout << "\u2517-------------------------------------------------------\u251B\033[0m" << endl;
         cout << "\n1) PLAY" << endl;
         cout << "2) GAME RULES" << endl;
         cout << "3) LORE" << endl;
